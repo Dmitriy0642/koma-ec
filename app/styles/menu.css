@@ -1,0 +1,225 @@
+.burgermenu_bar {
+  background: black;
+  width: 200px;
+  height: 240px;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  margin-top: 20px;
+  margin-left: 30px;
+  border-radius: 10px;
+  display: none;
+}
+
+.title_cart {
+  text-transform: uppercase;
+  color: grey;
+}
+
+.header_burger_menu {
+  display: flex;
+  justify-content: space-between;
+}
+.close_menu {
+  cursor: pointer;
+}
+
+.koma_logo_white {
+  display: none;
+}
+
+.title_burger {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 100;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 200;
+  margin-top: 25px;
+}
+
+.list_item {
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/*  menubar cart */
+
+.wrapper_buregercart {
+  width: 390px;
+  height: 240px;
+  background-color: black;
+  position: absolute;
+  display: flex;
+  right: 0;
+  top: 0;
+  padding: 25px;
+  margin-top: 14px;
+  margin-right: 30px;
+  border-radius: 10px;
+  display: none;
+}
+
+.burgercart_header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 100;
+  color: white;
+}
+
+.close_block {
+  cursor: pointer;
+}
+
+.product_block {
+  display: flex;
+  margin-top: 16px;
+}
+.first_block {
+  color: white;
+  margin-left: 10px;
+  width: 55%;
+}
+
+.product_name {
+  font-size: 13px;
+  font-weight: 300;
+  width: 90%;
+}
+
+.product_size {
+  margin-top: 12px;
+  margin-left: 2px;
+  font-size: 13px;
+  font-weight: 200;
+  color: grey;
+}
+
+.button_block {
+  display: flex;
+  margin-top: 18px;
+  margin-left: 7px;
+}
+
+.button_plus {
+  color: gray;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.button_minus {
+  margin-left: 8px;
+  color: gray;
+  cursor: pointer;
+}
+
+.button_delete_product {
+  color: gray;
+  text-transform: uppercase;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.product_anmout {
+  color: white;
+  font-size: 12px;
+}
+
+.second_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product_anmout {
+  margin-bottom: 8px;
+}
+
+.payment_block {
+  margin-top: 25px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left_part {
+  flex-direction: column;
+}
+
+.title_total {
+  font-size: 14px;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-right: 69px;
+}
+
+.expression_shipping {
+  color: gray;
+  font-size: 10px;
+}
+
+.amount_price {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.checkout_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+.button_checkout {
+  width: 100%;
+  height: 35px;
+  border: 1px solid white;
+  color: white;
+  text-transform: uppercase;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .burgermenu_bar {
+    border-radius: 0;
+    position: relative;
+    margin-top: -65px;
+    margin-left: 0;
+    width: 92%;
+    height: 340px;
+    justify-content: center;
+    align-items: center;
+  }
+  .koma_logo_white {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: -1;
+  }
+  .header_burger_menu {
+    margin-right: 12px;
+  }
+  .list {
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .list_item {
+    margin-top: 14px;
+  }
+
+  .title_burger {
+    order: -1;
+  }
+}

@@ -1,0 +1,69 @@
+.wrapper_header {
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.second_part {
+  display: flex;
+  align-items: center;
+}
+.translate_wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 30px;
+}
+
+.menu_title {
+  font-family: Helvetica Neue;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+  margin-left: 40px;
+  cursor: pointer;
+}
+
+.cart_title {
+  font-family: Helvetica Neue;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+  margin-right: 40px;
+  cursor: pointer;
+}
+
+.translate_title {
+  font-family: Helvetica Neue;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+  margin-right: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.coma_small_logo {
+  margin-left: 55px;
+}
+
+@media (max-width: 500px) {
+  .coma_small_logo {
+    margin-left: 16px;
+    order: -1;
+    margin-right: 16px;
+  }
+  .translate_wrapper {
+    display: none;
+  }
+  .menu_title {
+    margin: 0;
+  }
+  .cart_title {
+    margin-right: 16px;
+  }
+}
