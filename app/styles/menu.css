@@ -187,6 +187,57 @@
   cursor: pointer;
 }
 
+.koma_logo_white_cart {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  .wrapper_buregercart {
+    position: relative;
+    border-radius: 0;
+    width: 93%;
+    margin-top: -65px;
+    height: 300px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .close_button {
+    margin-right: 15px;
+  }
+  .payment_block {
+    width: 94%;
+  }
+
+  .koma_logo_white_cart {
+    display: flex;
+  }
+}
+@media (max-width: 420px) {
+  .product_name {
+    font-size: 11px;
+  }
+  .product_anmout {
+    width: 100%;
+    font-size: 10px;
+  }
+  .first_block {
+    width: 47%;
+  }
+}
+@media (max-width: 350px) {
+  .first_block {
+    width: 39%;
+  }
+  .product_name {
+    font-size: 9px;
+  }
+  .button_delete_product {
+    font-size: 12px;
+  }
+}
+
 @media (max-width: 500px) {
   .burgermenu_bar {
     border-radius: 0;
