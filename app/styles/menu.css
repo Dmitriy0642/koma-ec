@@ -193,14 +193,19 @@
 
 @media (max-width: 500px) {
   .wrapper_buregercart {
-    position: relative;
+    position: absolute;
     border-radius: 0;
-    width: 93%;
-    margin-top: -65px;
+    width: 95%;
     height: 300px;
-    padding: 20px;
+    padding: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: -4px;
     justify-content: center;
     align-items: center;
+  }
+  .second_block {
+    margin-left: 8px;
   }
 
   .close_button {
@@ -241,8 +246,8 @@
 @media (max-width: 500px) {
   .burgermenu_bar {
     border-radius: 0;
-    position: relative;
-    margin-top: -65px;
+    position: absolute;
+    margin-top: -4px;
     margin-left: 0;
     width: 92%;
     height: 340px;

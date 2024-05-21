@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "./components/Header";
 import MenuToggleOpen from "./components/MenuToggleOpen";
 import CartToggleOpen from "./components/CartToggleOpen";
+import Provider from "./Provider";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,7 +23,7 @@ export default function RootLayout({
         <Header />
         <MenuToggleOpen />
         <CartToggleOpen />
-        {children}
+        <Provider>{children}</Provider>
       </body>
     </html>
   );
