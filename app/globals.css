@@ -8,7 +8,29 @@
 }
 
 @font-face {
+  font-family: "PixelBit";
+  src: url("../app/fonts/ppneuebit.woff") format("woff"),
+    url("../app/fonts/ppneuebit-webfont.woff2") format("woff2");
+}
+
+/* .body_wrapper { 
+   margin-top: 278px; 
+ }  */
+
+.catalogchanger_wrapper {
+  border: 1px solid black;
+  margin-top: 175px;
+  height: 100px;
+}
+
+.button_changer {
+  font-family: "PixelBit";
+}
+
+.catalog_underwrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "ppneuebit";
-  src: url("/app/fonts/ppneuebit.woff") format("woff"),
-    url("/app/fonts/ppneuebit.woff2") format("woff2");
+  text-transform: uppercase;
 }
