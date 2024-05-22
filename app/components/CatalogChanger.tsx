@@ -7,6 +7,9 @@ const CatalogChanger: React.FC = () => {
         <div className="button_changer">his</div>
         <div className="button_changer">her</div>
       </section>
+      <section className="button_block">
+        <button className="button_show_catalog">show his catalog</button>
+      </section>
     </section>
   );
 };

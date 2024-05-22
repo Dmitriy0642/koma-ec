@@ -1,26 +1,30 @@
 "use client";
 import React from "react";
-import axios from "axios";
-import CarouselItem from "./CarouselItem";
-import { BASE_URL } from "../config";
-import { useQuery } from "@tanstack/react-query";
+import { useRequest } from "../hooks/useRequest";
+import Image from "next/image";
 import "../styles/carousel.css";
-
-export const fetchProducts = async () => {
-  const { data } = await axios.get(`${BASE_URL}firms`);
-  return data;
-};
+import Loader from "./Loader";
 
 const Carousel: React.FC = () => {
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["someKey"],
-    queryFn: fetchProducts,
-  });
-  console.log(data);
-
+  const { data, isLoading, isError } = useRequest("products");
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="carousel-container">
-      <div className="carousel">{/* <CarouselItem data={element} /> */}</div>
+      <div className="carousel">
+        {/* {d.data.map((item: object[]) => (
+          <div className="slide" key={item.name}>
+            <Image
+              src={item.image[0]}
+              className="slides"
+              width={132}
+              height={132}
+              alt={item}
+            ></Image>
+          </div>
+        ))} */}
+      </div>
     </div>
   );
 };

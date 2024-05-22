@@ -13,24 +13,51 @@
     url("../app/fonts/ppneuebit-webfont.woff2") format("woff2");
 }
 
-/* .body_wrapper { 
-   margin-top: 278px; 
- }  */
+.koma_logo_home {
+  margin-top: 37px;
+}
 
 .catalogchanger_wrapper {
-  border: 1px solid black;
-  margin-top: 175px;
+  margin-top: 155px;
   height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .button_changer {
   font-family: "PixelBit";
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .catalog_underwrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  font-family: "ppneuebit";
   text-transform: uppercase;
+  width: 20%;
+  margin-right: 30px;
+}
+
+.button_show_catalog {
+  margin-top: 25px;
+  margin-right: 39px;
+  width: 175px;
+  height: 35px;
+  border: 2px solid black;
+  text-transform: uppercase;
+  font-family: "PixelBit";
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .catalog_underwrapper {
+    margin-right: 0px;
+  }
+  .button_show_catalog {
+    margin-right: 0px;
+  }
 }

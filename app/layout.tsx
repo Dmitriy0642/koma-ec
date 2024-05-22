@@ -7,6 +7,8 @@ import CartToggleOpen from "./components/CartToggleOpen";
 import Provider from "./Provider";
 import CatalogChanger from "./components/CatalogChanger";
 
+const inter = Inter({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
   title: "Koma concept store",
 };
@@ -18,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
         <Header />
         <MenuToggleOpen />
         <CartToggleOpen />
