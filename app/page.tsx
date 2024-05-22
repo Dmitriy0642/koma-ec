@@ -13,6 +13,14 @@ export default function Home() {
         alt="Coma_logo_big"
         priority
       ></Image>
+      <Image
+        className="koma_logo_mobile"
+        alt="koma_logo_mobile"
+        src="/koma_logo_mobile.png"
+        width={430}
+        height={150}
+        priority
+      ></Image>
     </main>
   );
 }

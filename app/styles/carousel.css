@@ -22,3 +22,17 @@
   cursor: pointer;
   scroll-snap-align: start;
 }
+
+@media (max-width: 500px) {
+  .carousel-container {
+    height: 330px;
+    overflow: hidden;
+    margin-right: 0;
+    margin-left: 10px;
+  }
+
+  .slides {
+    height: 307px;
+    width: 240px;
+  }
+}

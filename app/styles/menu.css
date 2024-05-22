@@ -203,6 +203,7 @@
     margin-top: -4px;
     justify-content: center;
     align-items: center;
+    z-index: 999;
   }
   .second_block {
     margin-left: 8px;
@@ -250,6 +251,7 @@
     height: 340px;
     justify-content: center;
     align-items: center;
+    z-index: 999;
   }
   .koma_logo_white {
     display: flex;

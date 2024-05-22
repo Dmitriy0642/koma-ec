@@ -42,10 +42,16 @@
   margin-right: 30px;
 }
 
+.button_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .button_show_catalog {
   margin-top: 25px;
   margin-right: 39px;
-  width: 175px;
+  width: 185px;
   height: 35px;
   border: 2px solid black;
   text-transform: uppercase;
@@ -54,11 +60,27 @@
   cursor: pointer;
 }
 
+.koma_logo_mobile {
+  display: none;
+}
+
 @media (max-width: 500px) {
+  .koma_logo_home {
+    display: none;
+  }
+  .koma_logo_mobile {
+    display: block;
+    margin-top: 350px;
+  }
   .catalog_underwrapper {
-    margin-right: 0px;
+    width: 80%;
+    margin-right: 0;
+  }
+  .button_block {
+    width: 90%;
   }
   .button_show_catalog {
     margin-right: 0px;
+    width: 400px;
   }
 }

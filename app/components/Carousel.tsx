@@ -4,7 +4,6 @@ import { useRequest } from "../hooks/useRequest";
 import Image from "next/image";
 import "../styles/carousel.css";
 import Loader from "./Loader";
-import { error } from "console";
 
 const Carousel: React.FC = () => {
   const { data, isLoading, isError } = useRequest("products");
@@ -14,7 +13,6 @@ const Carousel: React.FC = () => {
   if (isError) {
     throw new Error("Error");
   }
-  console.log(data);
 
   return (
     <div className="carousel-container">
@@ -38,6 +36,7 @@ const Carousel: React.FC = () => {
                   width={132}
                   height={132}
                   alt={item.name}
+                  priority
                 ></Image>
               </div>
             )
