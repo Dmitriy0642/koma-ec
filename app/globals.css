@@ -5,6 +5,7 @@
   background: none;
   list-style: none;
   text-decoration: none;
+  overflow-x: hidden;
 }
 
 @font-face {

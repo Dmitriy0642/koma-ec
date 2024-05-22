@@ -4,26 +4,44 @@ import { useRequest } from "../hooks/useRequest";
 import Image from "next/image";
 import "../styles/carousel.css";
 import Loader from "./Loader";
+import { error } from "console";
 
 const Carousel: React.FC = () => {
   const { data, isLoading, isError } = useRequest("products");
   if (isLoading) {
     return <Loader />;
   }
+  if (isError) {
+    throw new Error("Error");
+  }
+  console.log(data);
+
   return (
     <div className="carousel-container">
       <div className="carousel">
-        {/* {d.data.map((item: object[]) => (
-          <div className="slide" key={item.name}>
-            <Image
-              src={item.image[0]}
-              className="slides"
-              width={132}
-              height={132}
-              alt={item}
-            ></Image>
-          </div>
-        ))} */}
+        {data &&
+          data.map(
+            (item: {
+              _id: string;
+              color: string;
+              firm: string;
+              image: string[];
+              name: string;
+              price: number;
+              sizes: object[];
+              status: boolean;
+            }) => (
+              <div className="slide" key={item._id}>
+                <Image
+                  src={item.image[0]}
+                  className="slides"
+                  width={132}
+                  height={132}
+                  alt={item.name}
+                ></Image>
+              </div>
+            )
+          )}
       </div>
     </div>
   );
