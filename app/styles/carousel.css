@@ -23,6 +23,43 @@
   scroll-snap-align: start;
 }
 
+.container-tittle-hidden {
+  display: none;
+}
+
+.conatiner-title {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.title_last_arrivals {
+  font-family: "PixelBit";
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.view_catalog_tittle {
+  font-family: "PixelBit";
+  font-size: 21px;
+  text-transform: uppercase;
+}
+
+.carousel-container_xl {
+  margin-top: 70px;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  margin-right: 0;
+  margin-left: 0;
+}
+.slides_xl {
+  margin-left: 10px;
+  width: 397px;
+  height: 463px;
+}
+
 @media (max-width: 500px) {
   .carousel-container {
     height: 330px;

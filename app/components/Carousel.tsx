@@ -5,17 +5,27 @@ import Image from "next/image";
 import "../styles/carousel.css";
 import Loader from "./Loader";
 
-const Carousel: React.FC = () => {
+interface CarouselProps {
+  slide: string;
+  container: string;
+  block: string;
+}
+
+const Carousel: React.FC<CarouselProps> = ({ slide, container, block }) => {
   const { data, isLoading, isError } = useRequest("products");
   if (isLoading) {
     return <Loader />;
   }
   if (isError) {
-    throw new Error("Error");
+    console.log(isError);
   }
 
   return (
-    <div className="carousel-container">
+    <div className={container}>
+      <div className={block}>
+        <p className="title_last_arrivals">Latest arrivals</p>
+        <p className="view_catalog_tittle">view catalog</p>
+      </div>
       <div className="carousel">
         {data &&
           data.map(
@@ -32,7 +42,7 @@ const Carousel: React.FC = () => {
               <div className="slide" key={item._id}>
                 <Image
                   src={item.image[0]}
-                  className="slides"
+                  className={slide}
                   width={132}
                   height={132}
                   alt={item.name}

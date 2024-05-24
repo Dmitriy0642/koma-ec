@@ -1,0 +1,48 @@
+.wrapper_brands {
+  display: flex;
+  height: 100vh;
+}
+
+.list_wrapper {
+  display: flex;
+}
+
+.list_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list_first {
+  margin-left: 50px;
+}
+
+.second_list {
+  margin-left: 167px;
+}
+
+.item_firm {
+  font-weight: 400;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-top: 13px;
+  cursor: pointer;
+}
+
+.product_image {
+  position: absolute;
+  z-index: -1;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+}
+
+.logo_product {
+  position: absolute;
+  margin-left: 118px;
+  margin-top: 200px;
+}
+
+.carousel-block {
+  height: 600px;
+}

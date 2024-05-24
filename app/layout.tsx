@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import Header from "./components/Header";
 import MenuToggleOpen from "./components/MenuToggleOpen";
 import CartToggleOpen from "./components/CartToggleOpen";
 import Provider from "./Provider";
-import CatalogChanger from "./components/CatalogChanger";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +23,6 @@ export default function RootLayout({
         <Header />
         <MenuToggleOpen />
         <CartToggleOpen />
-        <CatalogChanger />
         <Provider>{children}</Provider>
       </body>
     </html>

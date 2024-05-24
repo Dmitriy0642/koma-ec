@@ -1,10 +1,17 @@
 import Image from "next/image";
 import Carousel from "./components/Carousel";
+import CatalogChanger from "./components/CatalogChanger";
 import "../app/globals.css";
+
 export default function Home() {
   return (
     <main className="body_wrapper">
-      <Carousel />
+      <CatalogChanger />
+      <Carousel
+        container="carousel-container"
+        slide="slides"
+        block="container-tittle-hidden"
+      />
       <Image
         className="koma_logo_home"
         src="/coma_big.png"
