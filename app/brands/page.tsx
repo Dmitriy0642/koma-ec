@@ -3,7 +3,7 @@ import "../styles/brands.css";
 import Image from "next/image";
 export default function Home() {
   return (
-    <main className="body_wrapper">
+    <main className="main_wrapper">
       <div className="wrapper_brands">
         <section className="list_block">
           <section className="list_first">
@@ -25,7 +25,7 @@ export default function Home() {
               <li className="item_firm">vans</li>
             </ul>
           </section>
-          <section className="second_list">
+          <section className="list_second">
             <ul>
               <li className="item_firm">dime</li>
               <li className="item_firm">obey</li>
@@ -47,18 +47,20 @@ export default function Home() {
         </section>
         <section className="image_block">
           <Image
-            src="/StoneIslandGarmentDyedSweatshirtWhite1.webp"
-            width="864"
-            height="1047"
-            className="product_image"
-            alt="product_image"
-          ></Image>
-          <Image
             src="/siLogo.png"
             width={231}
             height={83}
             alt="logo_si"
             className="logo_product"
+            priority
+          ></Image>
+          <Image
+            src="/StoneIslandGarmentDyedSweatshirtWhite1.webp"
+            width={864}
+            height={1047}
+            className="product_image"
+            alt="product_image"
+            priority
           ></Image>
         </section>
       </div>
