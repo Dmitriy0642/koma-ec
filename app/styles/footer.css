@@ -81,3 +81,45 @@
 .apple_pay {
   margin-right: 18px;
 }
+
+@media (max-width: 1500px) {
+  .second_section {
+    margin-right: 0px;
+  }
+  .third_section {
+    margin-right: 0px;
+  }
+  .title_all_rules {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .second_section {
+    margin-right: 40px;
+  }
+  .link {
+    font-size: 13px;
+  }
+  .title_all_rules {
+    font-size: 12px;
+  }
+  .title_location {
+    font-size: 15px;
+  }
+  .title_inst {
+    font-size: 13px;
+  }
+  .title_telegram {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 850px) {
+  .second_section {
+    margin-right: 20px;
+  }
+  .title_all_rules {
+    width: 80%;
+  }
+}
