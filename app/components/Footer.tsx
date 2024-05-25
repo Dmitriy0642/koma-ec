@@ -10,6 +10,15 @@ export default async function Footer() {
             width={258}
             height={89}
             alt="koma_small_logo"
+            className="koma_logo_big"
+          ></Image>
+          <Image
+            src="/coma_smal_white.png"
+            alt="koma_white_logo"
+            className="koma_small_logo"
+            width={20}
+            height={40}
+            priority
           ></Image>
           <p className="title_all_rules">
             Copyright @ 2024 Koma Concept Store All rights reserve
@@ -66,6 +75,9 @@ export default async function Footer() {
               className="apple_pay"
             ></Image>
           </section>
+          <p className="rules_mobule_version">
+            Copyright @ 2024 Koma Concept Store All rights reserve
+          </p>
         </section>
       </section>
     </footer>

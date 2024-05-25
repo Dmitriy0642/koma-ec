@@ -19,6 +19,7 @@
 .first_section {
   margin-left: 40px;
   margin-top: 62px;
+  width: 33%;
 }
 
 .title_all_rules {
@@ -26,6 +27,7 @@
 }
 
 .second_section {
+  width: 33%;
   margin-right: 115px;
   margin-top: 60px;
 }
@@ -64,7 +66,7 @@
 
 .third_section {
   margin-top: 62px;
-  margin-right: 56px;
+  width: 33%;
 }
 
 .title_inst {
@@ -73,13 +75,15 @@
 
 .payment_services {
   display: flex;
-  justify-content: center;
   align-items: center;
   margin-top: 42px;
 }
 
 .apple_pay {
   margin-right: 18px;
+}
+.koma_small_logo {
+  display: none;
 }
 
 @media (max-width: 1500px) {
@@ -121,5 +125,77 @@
   }
   .title_all_rules {
     width: 80%;
+  }
+}
+
+@media (max-width: 849px) {
+  .footer_wrapper {
+    height: 610px;
+  }
+  .title_all_rules {
+    display: none;
+  }
+  .koma_logo_big {
+    width: 116px;
+    height: 41px;
+    margin-top: 0;
+    margin-left: 0;
+  }
+  .koma_small_logo {
+    display: block;
+  }
+  .footer_container {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .first_section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-left: 16px;
+    width: 80%;
+  }
+
+  .second_section {
+    margin-top: 44px;
+    margin-right: 121px;
+    margin-left: 121px;
+    width: auto;
+  }
+  .third_section {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .title_location {
+    text-align: center;
+  }
+  .payment_services {
+    justify-content: center;
+    margin-left: 20px;
+  }
+  .list {
+    margin-left: 0px;
+  }
+  .rules_mobule_version {
+    margin-top: 13px;
+    font-size: 14px;
+    color: #ffffff;
+  }
+}
+
+@media (max-width: 400px) {
+  .rules_mobule_version {
+    font-size: 10px;
+  }
+  .second_section {
+    margin-left: 80px;
+    margin-right: 80px;
   }
 }

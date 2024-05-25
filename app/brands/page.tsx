@@ -7,7 +7,7 @@ export default function Home() {
       <div className="wrapper_brands">
         <section className="list_block">
           <section className="list_first">
-            <ul>
+            <ul className="ul_list_first">
               <li className="item_firm">stone island</li>
               <li className="item_firm">CP company</li>
               <li className="item_firm">carhartt</li>
@@ -26,7 +26,7 @@ export default function Home() {
             </ul>
           </section>
           <section className="list_second">
-            <ul>
+            <ul className="ul_list_second">
               <li className="item_firm">dime</li>
               <li className="item_firm">obey</li>
               <li className="item_firm">supreme</li>
