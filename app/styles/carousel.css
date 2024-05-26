@@ -16,6 +16,16 @@
   scrollbar-width: none;
 }
 
+.carousel-main {
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.5s ease;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
 .slide {
   flex: 0 0 auto;
   margin-right: 18px;
@@ -54,6 +64,15 @@
   margin-right: 0;
   margin-left: 0;
 }
+
+.carousel-container-main {
+  margin-top: 45px;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  margin-right: 0;
+  margin-left: 100px;
+}
 .slides_xl {
   margin-left: 10px;
   width: 397px;
@@ -74,8 +93,17 @@
     margin-right: 0;
     margin-left: 10px;
   }
+  .carousel-container-main {
+    margin-top: 40px;
+    margin-left: 25px;
+  }
 
   .slides {
+    height: 307px;
+    width: 240px;
+  }
+
+  .slides-main {
     height: 307px;
     width: 240px;
   }

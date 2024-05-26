@@ -42,7 +42,7 @@
   margin-right: 30px;
 }
 
-.button_block {
+.block_with_button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,6 +81,10 @@
   }
   .button_show_catalog {
     margin-right: 0px;
-    width: 400px;
+    margin-top: 10px;
+    width: 100%;
+  }
+  .block_with_button {
+    width: 90%;
   }
 }

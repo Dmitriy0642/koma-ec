@@ -8,9 +8,10 @@ export default function Home() {
     <main className="body_wrapper">
       <CatalogChanger />
       <Carousel
-        container="carousel-container"
-        slide="slides"
+        container="carousel-container-main"
+        slide="slides-main"
         block="container-tittle-hidden"
+        carouselblock="carousel-main"
       />
       <Image
         className="koma_logo_home"

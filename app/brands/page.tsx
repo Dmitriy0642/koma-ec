@@ -69,6 +69,7 @@ export default function Home() {
           container="carousel-container_xl"
           slide="slides_xl"
           block="conatiner-title"
+          carouselblock="carousel"
         />
       </div>
     </main>

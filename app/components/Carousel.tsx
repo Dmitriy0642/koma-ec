@@ -9,9 +9,15 @@ interface CarouselProps {
   slide: string;
   container: string;
   block: string;
+  carouselblock: string;
 }
 
-const Carousel: React.FC<CarouselProps> = ({ slide, container, block }) => {
+const Carousel: React.FC<CarouselProps> = ({
+  slide,
+  container,
+  block,
+  carouselblock,
+}) => {
   const { data, isLoading, isError } = useRequest("products");
   if (isLoading) {
     return <Loader />;
@@ -26,7 +32,7 @@ const Carousel: React.FC<CarouselProps> = ({ slide, container, block }) => {
         <p className="title_last_arrivals">Latest arrivals</p>
         <p className="view_catalog_tittle">view catalog</p>
       </div>
-      <div className="carousel">
+      <div className={carouselblock}>
         {data &&
           data.map(
             (item: {
