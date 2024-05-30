@@ -1,4 +1,5 @@
 import CatalogProducts from "../components/CatalogProducts";
+import SortingComponent from "../components/SortingComponent";
 import "../styles/catalog.css";
 export default function Home() {
   return (
@@ -16,7 +17,9 @@ export default function Home() {
           </section>
         </section>
         <section className="content_blok">
-          <section className="content_sorting"></section>
+          <section className="content_sorting">
+            <SortingComponent />
+          </section>
           <section className="content_product">
             <CatalogProducts />
           </section>
