@@ -1,0 +1,54 @@
+.catalog_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.title_routing {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: "PixelBit";
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+.sorting_blok {
+  width: 400px;
+  height: 600px;
+  border: 1px solid black;
+  margin-left: 40px;
+}
+.catalog_blok {
+  width: 100%;
+}
+
+.content_blok {
+  display: flex;
+}
+.text_blok {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 75px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.title_page {
+  font-family: "PixelBit";
+  font-size: 74px;
+  text-transform: uppercase;
+  cursor: default;
+}
+
+.title_sorting {
+  font-size: 16px;
+  font-family: "PixelBit";
+  cursor: pointer;
+}
+
+.content_product {
+  width: 74%;
+}
+
+.content_sorting {
+  width: 26%;
+}
