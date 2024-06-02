@@ -1,65 +1,74 @@
 .sort_block {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  margin-left: 40px;
+  margin-top: 30px;
 }
 
 .title_sort {
-  margin-bottom: 10px;
-  font-size: 16px;
-  font-weight: 400;
+  font-family: "PixelBit";
+  font-size: 24px;
   text-transform: uppercase;
-  margin-bottom: 16px;
   cursor: default;
 }
 
 .sorting_but {
+  border: 1px solid rgb(163, 163, 163);
   margin: 5px 5px 0 0;
+  height: 38px;
   padding: 10px;
-  border: 1px solid #000;
-  background-color: #fff;
+  font-family: "PixelBit";
+  font-size: 20px;
+  overflow: hidden;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
-.sorting_but:hover {
-  background-color: #f0f0f0;
+.selected {
+  border: 1px solid rgb(45, 45, 45);
+  margin: 5px 5px 0 0;
+  height: 38px;
+  padding: 10px;
+  font-family: "PixelBit";
+  font-size: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: rgb(241, 241, 241);
+  text-transform: uppercase;
 }
+
+/* SortingNavBar */
+
 .block_bar {
   display: flex;
   flex-wrap: wrap;
 }
 .under_bar_block {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
-
 .button_selected_bar {
-  font-family: "PixelBit";
   display: flex;
-  border: 1px solid black;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-  font-size: 17px;
-  width: 130px;
-  height: 34px;
-  margin-right: 5px;
-  margin-left: 5px;
-  margin-bottom: 5px;
+  text-align: center;
+  font-family: "PixelBit";
+  font-size: 22px;
+  margin-left: 8px;
+  cursor: pointer;
 }
-
 .cross_black {
   margin-left: 4px;
-  margin-top: 1px;
+  margin-top: 4px;
 }
 
-.selected {
-  margin: 5px 5px 0 0;
-  padding: 10px;
-  border: 1px solid #000;
-  background-color: grey;
+.button_delete_all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "PixelBit";
+  font-size: 22px;
+  margin-left: 8px;
   cursor: pointer;
+}
+
+.button_delete_cross {
+  margin-left: 4px;
+  margin-top: 1px;
 }

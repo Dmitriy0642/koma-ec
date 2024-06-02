@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import CatalogProducts from "../components/CatalogProducts";
 import SortingBrands from "../components/SortingBrands";
 import SortingCategory from "../components/SortingCategory";
@@ -7,6 +8,7 @@ import SortingSubCategory from "../components/SortingSubCategory";
 import { useRequest } from "../hooks/useRequest";
 import SortingNavBar from "../components/SortingNavBar";
 import "../styles/catalog.css";
+import SortingGender from "../components/SortingGender";
 
 type FilterType = "category" | "subcategory" | "brands";
 
@@ -17,11 +19,6 @@ export default function Home() {
     subcategory: [],
     brands: [],
   });
-  const allEntities = [
-    ...filters.brands,
-    ...filters.category,
-    ...filters.subcategory,
-  ];
 
   const handleSelectFilter = (filterType: string, value: string) => {
     setFilters((prevFilters) => {
@@ -62,31 +59,29 @@ export default function Home() {
   return (
     <main className="body_wrapper">
       <div className="catalog_wrapper">
-        <section className="title_page_block">
+        <section>
           <p className="title_routing">home / catalog</p>
         </section>
         <section className="text_blok">
           <section className="block_first">
             <h1 className="title_page">catalog</h1>
-            <SortingNavBar
-              onSlectedFilter={handleSelectFilter}
-              filters={filters}
-            />
-            {allEntities.length <= 0 ? (
-              <></>
-            ) : (
-              <button onClick={onDelete} className="button_delete">
-                Delete everything
-              </button>
-            )}
           </section>
           <section className="block_second">
             <p className="title_sorting">sort : (default)</p>
           </section>
         </section>
+        <section className="selected_sorting_categories">
+          <SortingNavBar
+            onSlectedFilter={handleSelectFilter}
+            filters={filters}
+            onDelete={onDelete}
+          />
+        </section>
         <section className="content_blok">
           <section className="content_sorting">
             <div className="select_block">
+              {/* Component */}
+              <SortingGender />
               <button className="button_select">for him</button>
               <button className="button_select">for her</button>
             </div>

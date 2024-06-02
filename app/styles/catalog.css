@@ -1,94 +1,53 @@
 .catalog_wrapper {
   display: flex;
   flex-direction: column;
+  padding: 40px;
+  cursor: default;
 }
+
 .title_routing {
-  font-size: 16px;
+  font-size: 22px;
+  font-weight: 400;
   text-transform: uppercase;
   font-family: "PixelBit";
-  margin-top: 20px;
-  margin-left: 40px;
+  cursor: default;
 }
 
-.sorting_blok {
-  width: 400px;
-  height: 600px;
-  border: 1px solid black;
-  margin-left: 40px;
-}
-.catalog_blok {
-  width: 100%;
-}
-
-.content_blok {
-  display: flex;
-}
 .text_blok {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 75px;
-  padding-left: 40px;
-  padding-right: 40px;
+  margin-top: 40px;
 }
 
 .title_page {
-  font-family: "PixelBit";
   font-size: 74px;
+  font-family: "PixelBit";
   text-transform: uppercase;
-  cursor: default;
 }
 
 .title_sorting {
-  font-size: 16px;
+  font-size: 20px;
   font-family: "PixelBit";
   cursor: pointer;
 }
 
-.content_product {
-  width: 74%;
-  margin-left: 50px;
+.selected_sorting_categories {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.content_blok {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .content_sorting {
-  width: 23%;
+  width: 24%;
 }
 
-.select_block {
-  margin-left: 40px;
-  margin-top: 40px;
-  width: 70%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.button_select {
-  border: 1px solid black;
-  font-family: "PixelBit";
-  width: 40%;
-  font-size: 17px;
-  text-transform: uppercase;
-  height: 35px;
-  cursor: pointer;
-}
-.block_first {
-  display: flex;
-}
-
-.button_delete {
-  cursor: pointer;
-  margin-top: 13px;
-  font-family: "PixelBit";
-  display: flex;
-  border: 1px solid black;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-  font-size: 17px;
-  width: 130px;
-  height: 34px;
-  margin-right: 5px;
-  margin-left: 5px;
-  margin-bottom: 5px;
+.content_product {
+  width: 75%;
 }

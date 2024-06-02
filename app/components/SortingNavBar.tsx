@@ -5,6 +5,7 @@ import "../styles/sorting.css";
 interface SortingNavBarProps {
   filters: { [key in FilterType]: string[] };
   onSlectedFilter: (filterType: FilterType, value: string) => void;
+  onDelete: () => void;
 }
 
 type FilterType = "category" | "subcategory" | "brands";
@@ -12,6 +13,7 @@ type FilterType = "category" | "subcategory" | "brands";
 const SortingNavBar: React.FC<SortingNavBarProps> = ({
   filters,
   onSlectedFilter,
+  onDelete,
 }) => {
   return (
     <div className="block_bar">
@@ -39,6 +41,22 @@ const SortingNavBar: React.FC<SortingNavBarProps> = ({
           ))}
         </div>
       ))}
+      {filters.brands.length > 0 ||
+      filters.category.length > 0 ||
+      filters.subcategory.length > 0 ? (
+        <button className="button_delete_all" onClick={onDelete}>
+          Delete everything
+          <Image
+            src="/cross_black.png"
+            alt="cross"
+            width={12}
+            height={12}
+            className="button_delete_cross"
+          ></Image>
+        </button>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

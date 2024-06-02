@@ -14,7 +14,7 @@ const SortingCategory: React.FC<onClickProps> = ({ onClick, filter }) => {
   return (
     <div className="sort_block">
       <h3 className="title_sort">Category</h3>
-      <div>
+      <div className="block_sort_buttons">
         {data.map((item: { _id: string; name: string }) => (
           <button
             className={
