@@ -4,7 +4,7 @@ import { useRequest } from "../hooks/useRequest";
 import Loader from "./Loader";
 import "../styles/sorting.css";
 
-const SortingCategory: React.FC<onClickProps> = ({ onClick }) => {
+const SortingCategory: React.FC<onClickProps> = ({ onClick, filter }) => {
   const { data, isError, isLoading } = useRequest("category");
 
   if (isLoading) {
@@ -17,7 +17,9 @@ const SortingCategory: React.FC<onClickProps> = ({ onClick }) => {
       <div>
         {data.map((item: { _id: string; name: string }) => (
           <button
-            className="sorting_but"
+            className={
+              filter.category.includes(item.name) ? "selected" : "sorting_but"
+            }
             key={item._id}
             id={item.name}
             onClick={onClick}

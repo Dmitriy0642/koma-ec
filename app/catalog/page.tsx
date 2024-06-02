@@ -5,35 +5,58 @@ import SortingBrands from "../components/SortingBrands";
 import SortingCategory from "../components/SortingCategory";
 import SortingSubCategory from "../components/SortingSubCategory";
 import { useRequest } from "../hooks/useRequest";
+import SortingNavBar from "../components/SortingNavBar";
 import "../styles/catalog.css";
-import "../styles/sorting.css";
 
-interface Filters {
-  category: string;
-  subcategory: string;
-  brands: string;
-}
+type FilterType = "category" | "subcategory" | "brands";
 
 export default function Home() {
   const { data } = useRequest("products");
   const [filters, setFilters] = useState<Filters>({
-    category: "",
-    subcategory: "",
-    brands: "",
+    category: [],
+    subcategory: [],
+    brands: [],
   });
+  const allEntities = [
+    ...filters.brands,
+    ...filters.category,
+    ...filters.subcategory,
+  ];
 
   const handleSelectFilter = (filterType: string, value: string) => {
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [filterType]: value,
-    }));
+    setFilters((prevFilters) => {
+      const filterKey = filterType as FilterType;
+      const filterValues = prevFilters[filterKey];
+      if (filterValues.includes(value)) {
+        return {
+          ...prevFilters,
+          [filterKey]: filterValues.filter(
+            (filterValue) => filterValue !== value
+          ),
+        };
+      } else {
+        return {
+          ...prevFilters,
+          [filterKey]: [...filterValues, value],
+        };
+      }
+    });
   };
+
   const onClick = (
     e: React.MouseEvent<HTMLButtonElement>,
-    filterType: string
+    filterType: FilterType
   ) => {
     const name = e.currentTarget.id;
     handleSelectFilter(filterType, name);
+  };
+
+  const onDelete = () => {
+    setFilters({
+      category: [],
+      subcategory: [],
+      brands: [],
+    });
   };
 
   return (
@@ -45,6 +68,17 @@ export default function Home() {
         <section className="text_blok">
           <section className="block_first">
             <h1 className="title_page">catalog</h1>
+            <SortingNavBar
+              onSlectedFilter={handleSelectFilter}
+              filters={filters}
+            />
+            {allEntities.length <= 0 ? (
+              <></>
+            ) : (
+              <button onClick={onDelete} className="button_delete">
+                Delete everything
+              </button>
+            )}
           </section>
           <section className="block_second">
             <p className="title_sorting">sort : (default)</p>
@@ -56,9 +90,18 @@ export default function Home() {
               <button className="button_select">for him</button>
               <button className="button_select">for her</button>
             </div>
-            <SortingCategory onClick={(e) => onClick(e, "category")} />
-            <SortingSubCategory onClick={(e) => onClick(e, "subcategory")} />
-            <SortingBrands onClick={(e) => onClick(e, "brands")} />
+            <SortingCategory
+              onClick={(e) => onClick(e, "category")}
+              filter={filters}
+            />
+            <SortingSubCategory
+              onClick={(e) => onClick(e, "subcategory")}
+              filter={filters}
+            />
+            <SortingBrands
+              onClick={(e) => onClick(e, "brands")}
+              filter={filters}
+            />
           </section>
           <section className="content_product">
             <CatalogProducts products={data} />
