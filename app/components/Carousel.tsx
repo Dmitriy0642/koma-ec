@@ -2,8 +2,8 @@
 import React from "react";
 import { useRequest } from "../hooks/useRequest";
 import Image from "next/image";
-import "../styles/carousel.css";
 import Loader from "./Loader";
+import "../styles/carousel.css";
 
 interface CarouselProps {
   slide: string;

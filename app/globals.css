@@ -14,17 +14,26 @@
     url("../app/fonts/ppneuebit-webfont.woff2") format("woff2");
 }
 
+.body_underwrapper {
+  overflow: hidden;
+}
+
+.koma_logo_mobile {
+  display: none;
+}
+
 .koma_logo_home {
-  margin-top: 37px;
+  margin-top: 27px;
 }
 
 .catalogchanger_wrapper {
-  margin-top: 155px;
+  margin-top: 115px;
   height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 40px;
 }
 
 .button_changer {
@@ -64,13 +73,16 @@
   display: none;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .koma_logo_home {
     display: none;
   }
   .koma_logo_mobile {
     display: block;
-    margin-top: 350px;
+    margin-top: 20px;
+    width: 600px;
+    height: 260px;
+    margin-left: 20px;
   }
   .catalog_underwrapper {
     width: 80%;
@@ -86,5 +98,40 @@
   }
   .block_with_button {
     width: 90%;
+  }
+  .catalogchanger_wrapper {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 622px) {
+  .koma_logo_mobile {
+    width: 450px;
+    height: 200px;
+    margin-left: 35px;
+  }
+}
+
+@media (max-width: 500px) {
+  .koma_logo_mobile {
+    width: 400px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 446px) {
+  .koma_logo_mobile {
+    width: 340px;
+    height: 180px;
+    object-fit: fill;
+  }
+}
+
+@media (max-width: 400px) {
+  .koma_logo_mobile {
+    width: 340px;
+    height: 180px;
+    object-fit: fill;
+    margin-left: 15px;
   }
 }

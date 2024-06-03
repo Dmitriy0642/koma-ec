@@ -2,8 +2,6 @@
   position: absolute;
   z-index: 1;
   width: 100%;
-  margin-left: 100px;
-  margin-top: 38px;
 }
 
 .carousel {
@@ -66,8 +64,9 @@
 }
 
 .carousel-container-main {
-  margin-top: 45px;
+  margin-top: 28px;
   position: absolute;
+  overflow: hidden;
   z-index: 1;
   width: 100%;
   margin-right: 0;
@@ -78,6 +77,28 @@
   width: 397px;
   height: 463px;
 }
+.slides-main {
+  width: 120px;
+  height: 140px;
+}
+
+@media (max-width: 1920px) {
+  .carousel-container-main {
+    width: 92%;
+  }
+}
+
+@media (max-width: 1350px) {
+  .carousel-container-main {
+    width: 89%;
+  }
+}
+
+@media (max-width: 913px) {
+  .carousel-container-main {
+    width: 86%;
+  }
+}
 
 @media (max-width: 720px) {
   .slides_xl {
@@ -86,7 +107,7 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .carousel-container {
     height: 330px;
     overflow: hidden;
@@ -94,8 +115,10 @@
     margin-left: 10px;
   }
   .carousel-container-main {
+    position: relative;
     margin-top: 40px;
-    margin-left: 25px;
+    margin-left: 20px;
+    width: 98%;
   }
 
   .slides {
@@ -104,8 +127,29 @@
   }
 
   .slides-main {
-    height: 307px;
-    width: 240px;
+    height: 287px;
+    width: 210px;
+  }
+}
+
+@media (max-width: 622px) {
+  .carousel-container-main {
+    display: flex;
+    justify-content: center;
+    margin-left: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  .slides-main {
+    height: 257px;
+    width: 180px;
+  }
+}
+
+@media (max-width: 446px) {
+  .carousel-container-main {
+    margin-left: 25px;
   }
 }
 
@@ -124,5 +168,32 @@
     width: 200px;
     height: 260px;
     margin-left: 0;
+  }
+}
+@media (max-width: 414px) and (max-height: 896px) {
+  .carousel-container-main {
+    margin-left: 15px;
+  }
+  .slides-main {
+    height: 260px;
+    width: 180px;
+  }
+}
+
+@media (max-width: 400px) {
+  .slides-main {
+    height: 230px;
+    width: 150px;
+  }
+}
+
+@media (max-width: 375px) and (max-height: 667px) {
+  .carousel-container-main {
+    margin-top: 20px;
+    margin-left: 0;
+  }
+  .slides-main {
+    height: 240px;
+    width: 170px;
   }
 }
