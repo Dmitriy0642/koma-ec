@@ -1,6 +1,7 @@
 interface onClickProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   filter: {
+    gender: string[];
     category: string[];
     subcategory: string[];
     brands: string[];
@@ -8,6 +9,7 @@ interface onClickProps {
 }
 
 interface Filters {
+  gender: string[];
   category: string[];
   subcategory: string[];
   brands: string[];

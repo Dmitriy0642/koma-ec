@@ -7,14 +7,15 @@ import SortingCategory from "../components/SortingCategory";
 import SortingSubCategory from "../components/SortingSubCategory";
 import { useRequest } from "../hooks/useRequest";
 import SortingNavBar from "../components/SortingNavBar";
-import "../styles/catalog.css";
 import SortingGender from "../components/SortingGender";
+import "../styles/catalog.css";
 
-type FilterType = "category" | "subcategory" | "brands";
+type FilterType = "category" | "subcategory" | "brands" | "gender";
 
 export default function Home() {
   const { data } = useRequest("products");
   const [filters, setFilters] = useState<Filters>({
+    gender: ["For Him"],
     category: [],
     subcategory: [],
     brands: [],
@@ -50,6 +51,7 @@ export default function Home() {
 
   const onDelete = () => {
     setFilters({
+      gender: [],
       category: [],
       subcategory: [],
       brands: [],
@@ -79,12 +81,10 @@ export default function Home() {
         </section>
         <section className="content_blok">
           <section className="content_sorting">
-            <div className="select_block">
-              {/* Component */}
-              <SortingGender />
-              <button className="button_select">for him</button>
-              <button className="button_select">for her</button>
-            </div>
+            <SortingGender
+              onClick={(e) => onClick(e, "gender")}
+              filter={filters}
+            />
             <SortingCategory
               onClick={(e) => onClick(e, "category")}
               filter={filters}
