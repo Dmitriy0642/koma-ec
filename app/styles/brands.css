@@ -4,23 +4,13 @@
   height: 100vh;
 }
 
-.list_block {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 40px;
-}
-
 .item_firm {
   font-weight: 400;
   font-size: 18px;
   text-transform: uppercase;
   margin-top: 13px;
   cursor: pointer;
-}
-
-.list_second {
-  margin-left: 160px;
+  break-inside: avoid;
 }
 
 .product_image {
@@ -46,6 +36,17 @@
   text-decoration: underline;
 }
 
+.list_first {
+  margin-top: 200px;
+  margin-left: 40px;
+  display: flex;
+}
+
+.ul_list_first {
+  flex-wrap: wrap;
+  columns: 2;
+  column-gap: 100px;
+}
 @media (max-width: 1920px) {
   .image_block {
     width: 977px;
@@ -64,6 +65,10 @@
 @media (max-width: 1500px) {
   .product_image {
     width: 680px;
+    height: 850px;
+  }
+  .logo_product {
+    margin-top: 320px;
   }
   .image_block {
     width: 796px;
@@ -75,40 +80,62 @@
     font-size: 14.5px;
     font-weight: 500;
   }
+}
 
-  .list_second {
-    margin-left: 0px;
-  }
-  .list_block {
-    margin-left: 200px;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align: center;
-    margin-top: 0;
+@media (max-width: 1320px) {
+  .ul_list_first {
+    column-gap: 40px;
   }
 }
 
 @media (max-width: 1250px) {
-  .list_block {
-    margin-left: 100px;
+  .product_image {
+    width: 620px;
+    height: 900px;
+  }
+  .image_block {
+    width: 735px;
   }
 }
 
-@media (max-width: 1130px) {
-  .list_block {
-    margin-left: 70px;
+@media (max-width: 1200px) {
+  .product_image {
+    width: 540px;
+    height: 800px;
+  }
+  .image_block {
+    width: 615px;
+  }
+  .logo_product {
+    width: 150px;
+    object-fit: contain;
+    margin-top: 300px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .product_image {
+    width: 500px;
+    height: 760px;
+  }
+  .image_block {
+    width: 575px;
+  }
+  .logo_product {
+    width: 150px;
+    object-fit: contain;
+    margin-top: 300px;
   }
 }
 
 @media (max-width: 1050px) {
   .wrapper_brands {
     flex-direction: column;
-
     height: auto;
   }
-  .list_block {
-    flex-direction: column;
-    display: flex;
+
+  .list_first {
+    margin-top: 40px;
     margin-left: 0;
   }
 
@@ -116,20 +143,18 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    column-gap: 0;
   }
 
   .item_firm {
     margin-left: 15px;
   }
-  .ul_list_second {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+
   .product_image {
     position: relative;
     margin-top: 40px;
     width: 850px;
+    object-fit: contain;
   }
   section.image_block {
     margin-top: 40px;

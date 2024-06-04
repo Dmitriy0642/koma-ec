@@ -1,15 +1,13 @@
-"use client";
 import React from "react";
-import { useRequest } from "../hooks/useRequest";
 import Image from "next/image";
-import Loader from "./Loader";
 import "../styles/carousel.css";
-
+import { ProductProps } from "../types/Product";
 interface CarouselProps {
   slide: string;
   container: string;
   block: string;
   carouselblock: string;
+  prods: ProductProps[];
 }
 
 const Carousel: React.FC<CarouselProps> = ({
@@ -17,15 +15,8 @@ const Carousel: React.FC<CarouselProps> = ({
   container,
   block,
   carouselblock,
+  prods,
 }) => {
-  const { data, isLoading, isError } = useRequest("products");
-  if (isLoading) {
-    return <Loader />;
-  }
-  if (isError) {
-    console.log(isError);
-  }
-
   return (
     <div className={container}>
       <div className={block}>
@@ -33,30 +24,19 @@ const Carousel: React.FC<CarouselProps> = ({
         <p className="view_catalog_tittle">view catalog</p>
       </div>
       <div className={carouselblock}>
-        {data &&
-          data.map(
-            (item: {
-              _id: string;
-              color: string;
-              firm: string;
-              image: string[];
-              name: string;
-              price: number;
-              sizes: object[];
-              status: boolean;
-            }) => (
-              <div className="slide" key={item._id}>
-                <Image
-                  src={item.image[0]}
-                  className={slide}
-                  width={132}
-                  height={132}
-                  alt={item.name}
-                  priority
-                ></Image>
-              </div>
-            )
-          )}
+        {prods &&
+          prods.map((item) => (
+            <div className="slide" key={item._id}>
+              <Image
+                src={item.image[0]}
+                className={slide}
+                width={132}
+                height={132}
+                alt={item.name}
+                priority
+              ></Image>
+            </div>
+          ))}
       </div>
     </div>
   );

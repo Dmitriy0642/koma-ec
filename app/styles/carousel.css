@@ -46,12 +46,14 @@
   font-family: "PixelBit";
   font-size: 40px;
   text-transform: uppercase;
+  cursor: default;
 }
 
 .view_catalog_tittle {
   font-family: "PixelBit";
   font-size: 21px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .carousel-container_xl {
