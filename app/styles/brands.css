@@ -47,6 +47,11 @@
   columns: 2;
   column-gap: 100px;
 }
+
+.hover-text {
+  position: absolute;
+  margin-left: 4px;
+}
 @media (max-width: 1920px) {
   .image_block {
     width: 977px;

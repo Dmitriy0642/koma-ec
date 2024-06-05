@@ -83,6 +83,13 @@
   width: 120px;
   height: 140px;
 }
+.slides-main:hover {
+  filter: invert(100%);
+}
+
+.slides_xl:hover {
+  filter: invert(100%);
+}
 
 @media (max-width: 1920px) {
   .carousel-container-main {
@@ -129,7 +136,7 @@
   }
 
   .slides-main {
-    height: 287px;
+    height: 267px;
     width: 210px;
   }
 }
@@ -145,7 +152,7 @@
 @media (max-width: 500px) {
   .slides-main {
     height: 257px;
-    width: 180px;
+    width: 200px;
   }
 }
 
@@ -177,15 +184,15 @@
     margin-left: 15px;
   }
   .slides-main {
-    height: 260px;
-    width: 180px;
+    height: 257px;
+    width: 200px;
   }
 }
 
 @media (max-width: 400px) {
   .slides-main {
-    height: 230px;
-    width: 150px;
+    height: 257px;
+    width: 200px;
   }
 }
 
@@ -195,7 +202,7 @@
     margin-left: 0;
   }
   .slides-main {
-    height: 240px;
-    width: 170px;
+    height: 230px;
+    width: 150px;
   }
 }

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import "../styles/carousel.css";
 import { ProductProps } from "../types/Product";
+import "../styles/carousel.css";
+
 interface CarouselProps {
   slide: string;
   container: string;
@@ -17,6 +18,7 @@ const Carousel: React.FC<CarouselProps> = ({
   carouselblock,
   prods,
 }) => {
+  const [hoverIndex, setHoverIndex] = useState<string | null>(null);
   return (
     <div className={container}>
       <div className={block}>
@@ -25,9 +27,11 @@ const Carousel: React.FC<CarouselProps> = ({
       </div>
       <div className={carouselblock}>
         {prods &&
-          prods.map((item) => (
+          prods.map((item, index) => (
             <div className="slide" key={item._id}>
               <Image
+                onMouseEnter={() => setHoverIndex(item._id)}
+                onMouseLeave={() => setHoverIndex(null)}
                 src={item.image[0]}
                 className={slide}
                 width={132}
