@@ -27,8 +27,8 @@ const CartToggleOpen: React.FC = () => {
           <section className="close_block" onClick={onClick}>
             <Image
               src="/cross.png"
-              width={20}
-              height={20}
+              width={14}
+              height={14}
               priority
               alt="cross"
               className="close_button"
@@ -69,7 +69,17 @@ const CartToggleOpen: React.FC = () => {
           </section>
         </section>
         <section className="checkout_block">
-          <button className="button_checkout">checkout</button>
+          <button className="button_checkout">
+            checkout
+            <Image
+              src="/arrow_small.png"
+              className="arrow_in_button_submit"
+              width={18.33}
+              height={11}
+              alt="arrow_small"
+              priority
+            ></Image>
+          </button>
         </section>
       </section>
     </div>

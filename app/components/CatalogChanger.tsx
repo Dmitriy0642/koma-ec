@@ -24,7 +24,7 @@ const CatalogChanger: React.FC<CatalogChangerPtops> = ({
           id="her"
           onClick={() => setOption(false)}
         >
-          {value === false ? "(her)" : "her"}
+          {value === true ? "her" : "(her)"}
         </div>
       </section>
       <section className="block_with_button">

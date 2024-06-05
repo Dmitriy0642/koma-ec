@@ -1,19 +1,22 @@
 .burgermenu_bar {
   background: black;
-  width: 200px;
-  height: 240px;
-  padding: 20px;
+  margin-top: 20px;
+  width: 266px;
+  height: 300px;
+  padding: 24px;
   position: absolute;
   top: 0;
-  margin-top: 20px;
-  margin-left: 30px;
+  margin-left: 12px;
   border-radius: 10px;
   display: none;
+  overflow: hidden;
+  z-index: 999;
 }
 
 .title_cart {
   text-transform: uppercase;
   color: grey;
+  font-size: 18px;
 }
 
 .header_burger_menu {
@@ -26,12 +29,15 @@
 
 .koma_logo_white {
   display: none;
+  position: absolute;
+  left: 50%;
 }
 
 .title_burger {
   color: white;
   text-transform: uppercase;
   font-weight: 100;
+  font-size: 18px;
 }
 
 .list {
@@ -39,14 +45,15 @@
   flex-direction: column;
   color: white;
   text-transform: uppercase;
+  margin-top: 24px;
   font-weight: 200;
-  margin-top: 25px;
 }
 
 .list_item {
   cursor: pointer;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  font-size: 18px;
 }
 
 /*  menubar cart */
@@ -59,12 +66,13 @@
   display: flex;
   right: 0;
   top: 0;
-  padding: 25px;
+  padding: 24px;
   margin-top: 14px;
-  margin-right: 30px;
+  margin-right: 10px;
   border-radius: 10px;
   display: none;
   z-index: 999;
+  overflow: hidden;
 }
 
 .burgercart_header {
@@ -85,7 +93,7 @@
 .first_block {
   color: white;
   margin-left: 10px;
-  width: 54%;
+  width: 52%;
 }
 
 .product_name {
@@ -121,21 +129,24 @@
 }
 
 .button_delete_product {
-  color: gray;
+  color: #ffffff;
   text-transform: uppercase;
   font-size: 13px;
   cursor: pointer;
+  opacity: 40%;
 }
 
 .product_anmout {
   color: white;
   font-size: 12px;
+  width: 100%;
 }
 
 .second_block {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-left: 14px;
 }
 
 .product_anmout {
@@ -189,7 +200,13 @@
 }
 
 .koma_logo_white_cart {
+  position: absolute;
+  left: 50%;
   display: none;
+}
+
+.arrow_in_button_submit {
+  margin-left: 10px;
 }
 
 @media (max-width: 500px) {
@@ -207,17 +224,20 @@
   }
   .wrapper_buregercart {
     position: absolute;
+    padding: 0;
     margin-right: 0;
-    margin-left: 12px;
-    width: 90%;
+    margin-left: 0;
+    margin-top: -4px;
+    width: 100%;
     border-radius: 0;
-    margin-top: -3px;
+
     height: 290px;
   }
   .second_block {
     margin-left: 0;
   }
   .burgercart_block {
+    padding: 20px;
     align-items: center;
   }
   .product_anmout {
@@ -278,11 +298,8 @@
     width: 15px;
     height: 25px;
   }
-  .header_burger_menu {
-    margin-right: 12px;
-  }
+
   .list {
-    margin-left: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
