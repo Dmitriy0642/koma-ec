@@ -18,14 +18,14 @@
   align-items: center;
 }
 .product_name {
-  font-size: 17px;
-  font-family: "PixelBit";
+  font-size: 14px;
+  font-family: Helvetica;
   width: 70%;
 }
 
 .product_price {
-  font-size: 17px;
-  font-family: "PixelBit";
+  font-size: 14px;
+  font-family: Helvetica;
 }
 
 @media (max-width: 2000px) {
@@ -69,11 +69,11 @@
     height: 410px;
   }
   .product_name {
-    font-size: 15px;
+    font-size: 12px;
     width: 80%;
   }
   .product_price {
-    font-size: 16px;
+    font-size: 10px;
   }
 }
 
@@ -82,12 +82,18 @@
     width: 285px;
     height: 380px;
   }
+  .product_name {
+    width: 200px;
+  }
 }
 
-@media (max-width: 1261px) {
+@media (max-width: 1267px) {
   .card_product {
     width: 265px;
     height: 340px;
+  }
+  .product_name {
+    width: 200px;
   }
 }
 
@@ -97,11 +103,12 @@
     height: 305px;
   }
   .product_name {
-    font-size: 13px;
-    width: 80%;
+    font-size: 11px;
+    width: 180px;
   }
   .product_price {
-    font-size: 13px;
+    font-size: 10px;
+    font-weight: 200;
   }
 }
 
@@ -111,9 +118,15 @@
     height: 500px;
   }
   .product_name {
-    font-size: 16px;
+    font-size: 14px;
+    width: 200px;
   }
   .product_price {
-    font-size: 18px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 1012px) {
+  .product_container {
+    display: none;
   }
 }

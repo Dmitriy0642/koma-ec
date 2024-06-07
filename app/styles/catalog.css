@@ -9,7 +9,7 @@
   font-size: 22px;
   font-weight: 400;
   text-transform: uppercase;
-  font-family: "PixelBit";
+  font-family: Helvetica;
   cursor: default;
 }
 
@@ -22,13 +22,14 @@
 
 .title_page {
   font-size: 74px;
-  font-family: "PixelBit";
+  font-family: Helvetica;
   text-transform: uppercase;
+  font-weight: 700;
 }
 
 .title_sorting {
-  font-size: 20px;
-  font-family: "PixelBit";
+  font-size: 16px;
+  font-family: Helvetica;
   cursor: pointer;
 }
 
@@ -61,8 +62,8 @@
 
 .button_select {
   border: 1px solid rgb(136, 136, 136);
-  font-family: "PixelBit";
-  font-size: 20px;
+  font-family: Helvetica;
+  font-size: 16px;
   text-transform: uppercase;
   width: 40%;
   height: 40px;
@@ -71,11 +72,67 @@
 
 .button_select_active {
   border: 1px solid rgb(45, 45, 45);
-  font-family: "PixelBit";
-  font-size: 20px;
+  font-family: Helvetica;
+  font-size: 16px;
   text-transform: uppercase;
   width: 40%;
   height: 40px;
   cursor: pointer;
   background-color: rgb(241, 241, 241);
+}
+
+.button_setup_filters {
+  display: none;
+}
+
+@media (max-width: 1250px) {
+  .latest_arrivals_block {
+    display: none;
+  }
+}
+
+@media (max-width: 1012px) {
+  .catalog_wrapper {
+    padding: 10px;
+  }
+  .latest_arrivals_block {
+    display: flex;
+  }
+  .content_product {
+    display: none;
+  }
+  .content_sorting {
+    display: none;
+  }
+  .title_routing {
+    display: none;
+  }
+  .title_sorting {
+    display: none;
+  }
+  .text_blok {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .button_setup_filters {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .button_filters {
+    width: 100%;
+    border: 2px solid black;
+    height: 43px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .setting_setup_picture {
+    align-items: center;
+    margin-right: 10px;
+  }
+  .selected_sorting_categories {
+    order: 0;
+  }
 }

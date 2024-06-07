@@ -23,7 +23,9 @@ const SortingSubCategory: React.FC<onClickProps> = ({ onClick, filter }) => {
           .map((item: { _id: string; name: string }) => (
             <button
               className={
-                filter.brands.includes(item.name) ? "selected" : "sorting_but"
+                filter.subcategory.includes(item.name)
+                  ? "selected"
+                  : "sorting_but"
               }
               key={item._id}
               id={item.name}

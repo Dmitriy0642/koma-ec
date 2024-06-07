@@ -8,6 +8,7 @@ import SortingSubCategory from "../components/SortingSubCategory";
 import { useRequest } from "../hooks/useRequest";
 import SortingNavBar from "../components/SortingNavBar";
 import SortingGender from "../components/SortingGender";
+import LatestArrivals from "../components/LatestArrivals";
 import "../styles/catalog.css";
 
 type FilterType = "category" | "subcategory" | "brands" | "gender";
@@ -79,6 +80,18 @@ export default function Home() {
             onDelete={onDelete}
           />
         </section>
+        <section className="button_setup_filters">
+          <button className="button_filters">
+            <Image
+              src="/settings_setup.png"
+              alt="setting_setup"
+              width={16}
+              height={16}
+              className="setting_setup_picture"
+            ></Image>
+            show filters
+          </button>
+        </section>
         <section className="content_blok">
           <section className="content_sorting">
             <SortingGender
@@ -100,6 +113,9 @@ export default function Home() {
           </section>
           <section className="content_product">
             <CatalogProducts products={data} />
+          </section>
+          <section className="latest_arrivals_block">
+            <LatestArrivals />
           </section>
         </section>
       </div>
