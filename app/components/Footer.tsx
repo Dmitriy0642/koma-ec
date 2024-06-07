@@ -1,6 +1,6 @@
 import Image from "next/image";
 import "../styles/footer.css";
-export default async function Footer() {
+const Footer = () => {
   return (
     <footer className="footer_wrapper">
       <section className="footer_container">
@@ -82,4 +82,6 @@ export default async function Footer() {
       </section>
     </footer>
   );
-}
+};
+
+export default Footer;

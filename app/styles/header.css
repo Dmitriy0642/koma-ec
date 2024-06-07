@@ -19,6 +19,7 @@ header.wrapper_header {
   line-height: 18px;
   text-align: left;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .cart_title {
@@ -28,6 +29,7 @@ header.wrapper_header {
   line-height: 18px;
   text-align: center;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .coma_small_logo {
