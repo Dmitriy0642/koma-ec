@@ -5,6 +5,7 @@ import Carousel from "./Carousel";
 import { useRequest } from "../hooks/useRequest";
 import Loader from "./Loader";
 import List from "./List";
+import LatestArrivals from "./LatestArrivals";
 import "../styles/brands.css";
 
 const Brands = () => {
@@ -38,6 +39,7 @@ const Brands = () => {
             alt="product_image"
             priority
           ></Image>
+          <p className="text_selected">go to catalog</p>
         </section>
       </div>
       <div className="carousel-block">
@@ -49,6 +51,7 @@ const Brands = () => {
           prods={data}
         />
       </div>
+      <LatestArrivals />
     </>
   );
 };
