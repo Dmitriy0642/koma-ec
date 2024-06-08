@@ -20,7 +20,7 @@
 .product_name {
   font-size: 14px;
   font-family: Helvetica;
-  width: 70%;
+  width: 80%;
 }
 
 .product_price {
@@ -61,6 +61,10 @@
     width: 345px;
     height: 470px;
   }
+  .product_name {
+    width: 75%;
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 1501px) {
@@ -69,8 +73,7 @@
     height: 410px;
   }
   .product_name {
-    font-size: 12px;
-    width: 80%;
+    font-size: 11px;
   }
   .product_price {
     font-size: 10px;

@@ -1,0 +1,79 @@
+.wrapper_paymentdelivery {
+  padding: 40px;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+.routing_block {
+  margin-left: 40px;
+  margin-top: 40px;
+}
+
+.routing_text {
+  text-transform: uppercase;
+  color: black;
+  font-family: Helvetica Neue;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.conten_payment {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.content_payment_title {
+  overflow: hidden;
+  font-family: Helvetica Neue;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: center;
+}
+
+.text_description_block {
+  overflow: hidden;
+  margin-top: 51px;
+  width: 500px;
+  height: 443px;
+}
+
+.title_kind_of_delivery {
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.title_kind_of_payment {
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.text_description {
+  margin-bottom: 20px;
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.text_description_second {
+  margin-bottom: 20px;
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+@media (max-width: 600px) {
+  .text_description_block {
+    width: auto;
+    height: auto;
+  }
+}

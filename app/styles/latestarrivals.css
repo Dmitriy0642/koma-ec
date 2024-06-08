@@ -109,6 +109,11 @@
     height: 457px;
   }
 }
+@media (max-width: 689px) {
+  .prod_name.small {
+    font-size: 13px;
+  }
+}
 
 @media (max-width: 680px) {
   .item.small {
@@ -120,14 +125,14 @@
   .prod_name.small {
     margin-top: 10px;
     font-family: Helvetica Neue;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
     line-height: 14px;
   }
   .price.small {
     margin-top: 10px;
     font-family: Helvetica Neue;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
     line-height: 14px;
     text-align: left;

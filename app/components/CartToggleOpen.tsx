@@ -44,7 +44,7 @@ const CartToggleOpen: React.FC = () => {
             alt="product_picture"
           ></Image>
           <section className="first_block">
-            <p className="product_name">
+            <p className="name_of_product">
               Garhartt WIP OG Chore Chromc Coat "Dearborn" Canvas
             </p>
             <p className="product_size">Size:M</p>

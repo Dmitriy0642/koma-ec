@@ -10,6 +10,7 @@ import SortingNavBar from "../components/SortingNavBar";
 import SortingGender from "../components/SortingGender";
 import LatestArrivals from "../components/LatestArrivals";
 import "../styles/catalog.css";
+import FiltersToggle from "../components/FiltersToggle";
 
 type FilterType = "category" | "subcategory" | "brands" | "gender";
 
@@ -21,7 +22,7 @@ export default function Home() {
     subcategory: [],
     brands: [],
   });
-
+  const [open, setIsOpen] = useState(false);
   const handleSelectFilter = (filterType: string, value: string) => {
     setFilters((prevFilters) => {
       const filterKey = filterType as FilterType;
@@ -58,6 +59,9 @@ export default function Home() {
       brands: [],
     });
   };
+  const isOpen = (open: boolean) => {
+    setIsOpen(!open);
+  };
 
   return (
     <main className="body_wrapper">
@@ -81,16 +85,24 @@ export default function Home() {
           />
         </section>
         <section className="button_setup_filters">
-          <button className="button_filters">
-            <Image
-              src="/settings_setup.png"
-              alt="setting_setup"
-              width={16}
-              height={16}
-              className="setting_setup_picture"
-            ></Image>
-            show filters
-          </button>
+          {open === true ? (
+            <FiltersToggle
+              onSlectedFilter={handleSelectFilter}
+              filters={filters}
+              onClick={() => isOpen(open)}
+            />
+          ) : (
+            <button className="button_filters" onClick={() => isOpen(open)}>
+              <Image
+                src="/settings_setup.png"
+                alt="setting_setup"
+                width={16}
+                height={16}
+                className="setting_setup_picture"
+              ></Image>
+              show filters
+            </button>
+          )}
         </section>
         <section className="content_blok">
           <section className="content_sorting">
