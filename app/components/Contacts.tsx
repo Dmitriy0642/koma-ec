@@ -23,8 +23,6 @@ const Contacts: React.FC = () => {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    console.log(name);
-
     setFormValues((prevValues) => ({
       ...prevValues,
       [name]: value,
