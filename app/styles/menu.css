@@ -1,3 +1,7 @@
+a {
+  color: white;
+}
+
 .burgermenu_bar {
   background: black;
   margin-top: 20px;
@@ -11,6 +15,7 @@
   display: none;
   overflow: hidden;
   z-index: 999;
+  font-family: Helvetica;
 }
 
 .title_cart {
@@ -45,7 +50,7 @@
   flex-direction: column;
   color: white;
   text-transform: uppercase;
-  margin-top: 24px;
+  margin-top: 14px;
   font-weight: 200;
 }
 

@@ -9,8 +9,8 @@ import { useRequest } from "../hooks/useRequest";
 import SortingNavBar from "../components/SortingNavBar";
 import SortingGender from "../components/SortingGender";
 import LatestArrivals from "../components/LatestArrivals";
-import "../styles/catalog.css";
 import FiltersToggle from "../components/FiltersToggle";
+import "../styles/catalog.css";
 
 type FilterType = "category" | "subcategory" | "brands" | "gender";
 

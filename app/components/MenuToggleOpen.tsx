@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import "../styles/menu.css";
 
 const MenuToggleOpen: React.FC = () => {
@@ -37,14 +38,28 @@ const MenuToggleOpen: React.FC = () => {
         </section>
         <section className="list">
           <ul className="list_of_actions">
-            <li className="list_item">for her</li>
-            <li className="list_item">for his</li>
+            <li className="list_item">
+              <Link href="/">home</Link>
+            </li>
+            <li className="list_item">
+              <Link href="/catalog">catalog</Link>
+            </li>
             <li className="list_item">sale</li>
             <li className="list_item">brands</li>
-            <li className="list_item">care of clothes</li>
-            <li className="list_item">payment & delivery</li>
+            <li className="list_item">
+              <Link className="list_item" href="/careofclothes">
+                care of clothes
+              </Link>
+            </li>
+            <li className="list_item">
+              <Link className="list_item" href="/paymentdelivery">
+                payment & delivery
+              </Link>
+            </li>
             <li className="list_item">about us</li>
-            <li className="list_item">contacts</li>
+            <li className="list_item">
+              <Link href="/contacts">contacts</Link>
+            </li>
           </ul>
         </section>
       </section>
