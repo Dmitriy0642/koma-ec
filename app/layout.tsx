@@ -21,9 +21,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <MenuToggleOpen />
-        <CartToggleOpen />
-        <Provider>{children}</Provider>
+        <Provider>
+          <MenuToggleOpen />
+          <CartToggleOpen />
+          {children}
+        </Provider>
       </body>
     </html>
   );
