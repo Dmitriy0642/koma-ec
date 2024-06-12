@@ -11,6 +11,7 @@
   text-transform: uppercase;
   font-family: Helvetica;
   cursor: default;
+  height: auto;
 }
 
 .text_blok {

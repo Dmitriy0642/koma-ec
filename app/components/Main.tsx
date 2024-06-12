@@ -10,6 +10,7 @@ import "../globals.css";
 const Main = () => {
   const { data, isError, isLoading } = useRequest("products");
   const [options, setOptios] = useState(true);
+
   if (isError) {
     console.log("Error");
   }

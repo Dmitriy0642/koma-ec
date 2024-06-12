@@ -1,0 +1,268 @@
+.wrapper_product {
+  cursor: default;
+  padding: 10px;
+}
+.title_routing {
+  font-family: Helvetica Neue;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  text-transform: uppercase;
+  margin-top: 40px;
+  margin-left: 40px;
+  overflow: hidden;
+}
+
+.wrapper_conext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.conext {
+  padding: 10px;
+}
+.slides_prod {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.navbar_product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 29px;
+}
+
+.nameofprod {
+  font-family: Helvetica Neue;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  overflow: hidden;
+  height: auto;
+  width: auto;
+}
+
+.color_prod {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Helvetica Neue;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: rgb(184, 184, 184);
+}
+
+.color_prod_color {
+  overflow: hidden;
+  color: black;
+  font-family: Helvetica Neue;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.sizes_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title_size {
+  overflow: hidden;
+  font-family: Helvetica Neue;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: gray;
+}
+
+.button_size {
+  width: auto;
+  height: 26px;
+  color: black;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.button_size_active {
+  width: auto;
+  height: 26px;
+  background: black;
+  color: white;
+  text-transform: uppercase;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.price_of_prod {
+  font-family: Helvetica Neue;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 23.4px;
+}
+
+.add_to_bascet {
+  width: 278px;
+  height: 43px;
+  border: 1px solid black;
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.line {
+  display: flex;
+  border: 1px solid black;
+  width: 100%;
+  margin-bottom: 32px;
+  margin-top: 29px;
+}
+
+.first_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+}
+
+.description_block {
+  width: 33%;
+}
+
+.description_block_second {
+  width: 33%;
+}
+
+.description_block_third {
+  width: 33%;
+}
+.description_list_part {
+  overflow: hidden;
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  color: rgb(140, 140, 140);
+  margin-right: 16px;
+  overflow: hidden;
+}
+
+.list_description {
+  overflow: hidden;
+  display: flex;
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-transform: uppercase;
+  margin-bottom: 19px;
+}
+
+.description_prod {
+  overflow: hidden;
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  color: rgb(140, 140, 140);
+  text-transform: uppercase;
+  margin-bottom: 19px;
+}
+
+.description_text {
+  overflow: hidden;
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.8px;
+  margin-bottom: 19px;
+}
+
+.second_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+}
+
+.delivery_block {
+  width: 33%;
+}
+
+.return_block {
+  width: 33%;
+}
+
+.features_block {
+  width: 33%;
+}
+
+.delivery_title {
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  color: rgb(140, 140, 140);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.delivery_text {
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.8px;
+  margin-bottom: 19px;
+}
+
+.return_title {
+  overflow: hidden;
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  color: rgb(140, 140, 140);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.return_text {
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.8px;
+  margin-bottom: 19px;
+}
+
+.features_title {
+  font-family: Helvetica Neue;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  color: rgb(140, 140, 140);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.features_link {
+  margin-bottom: 7px;
+}
+
+.block_with_carousel {
+  height: 600px;
+  overflow: hidden;
+}

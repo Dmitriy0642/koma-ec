@@ -7,7 +7,9 @@
   text-decoration: none;
   overflow-x: hidden;
 }
-
+a {
+  color: white;
+}
 @font-face {
   font-family: "PixelBit";
   src: url("../app/fonts/ppneuebit.woff") format("woff"),
