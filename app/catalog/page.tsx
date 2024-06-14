@@ -10,6 +10,7 @@ import SortingNavBar from "../components/SortingNavBar";
 import SortingGender from "../components/SortingGender";
 import LatestArrivals from "../components/LatestArrivals";
 import FiltersToggle from "../components/FiltersToggle";
+import { useRouter } from "next/navigation";
 import "../styles/catalog.css";
 
 type FilterType = "category" | "subcategory" | "brands" | "gender";

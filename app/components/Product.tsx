@@ -1,7 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRequestById } from "../hooks/useRequestById";
 import { ProductProps } from "../types/Product";
+import { getCookieValue } from "../util/cookiesMatcher";
+import { useRequestPost } from "../hooks/useRequestPost";
 import Loader from "./Loader";
 import Description from "./Description";
 import Carousel from "./Carousel";
@@ -11,20 +13,77 @@ import "../styles/product.css";
 interface ProductPropsI {
   id: string;
   prods: ProductProps[];
+  userId?: string;
 }
 
 const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
+  const userIdCookie = getCookieValue("userId");
   const { data, isLoading, isError } = useRequestById("products", `${id}`);
+
   const [isSelected, setSelected] = useState("");
+  const [isProduct, setIsProduct] = useState({
+    userId: `${userIdCookie}`,
+    items: {},
+  });
+  const { mutate, error, isPending } = useRequestPost(
+    "cart",
+    `${userIdCookie}`,
+    isProduct
+  );
+
+  useEffect(() => {
+    if (data) {
+      setIsProduct({
+        userId: `${userIdCookie}`,
+        items: {
+          prodId: data._id,
+          name: data.name,
+          price: data.price,
+          sizes: [{ size: `${isSelected}`, value: 1 }],
+          image: [...data.image],
+        },
+      });
+    }
+  }, [data, userIdCookie]);
+  if (error) {
+    console.log(error);
+  }
+
   if (isLoading || prods === undefined) {
     return <Loader />;
   }
+
   if (isError) {
     console.log(isError);
   }
 
   const handleClick = (id: string) => {
     setSelected(id);
+    setIsProduct({
+      userId: `${userIdCookie}`,
+      items: [
+        {
+          prodId: data._id,
+          name: data.name,
+          price: data.price,
+          sizes: [{ size: `${id}`, value: 1 }],
+          image: [...data.image],
+        },
+      ],
+    });
+  };
+
+  const onSend = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (!isSelected) {
+      console.log("Размер не выбранн");
+    }
+
+    try {
+      mutate();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -59,7 +118,7 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
                   id={item.size}
                   onClick={(e) => handleClick(e.currentTarget.id)}
                   className={
-                    isSelected.includes(`${item.size}`)
+                    isSelected === item.size
                       ? "button_size_active"
                       : "button_size"
                   }
@@ -69,7 +128,9 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
               ))}
             </div>
             <p className="price_of_prod">{data.price} UAN / 170$</p>
-            <button className="add_to_bascet">Додати до кошика</button>
+            <button className="add_to_bascet" onClick={(e) => onSend(e)}>
+              Додати до кошика
+            </button>
           </div>
           <div className="line"></div>
           <Description />
