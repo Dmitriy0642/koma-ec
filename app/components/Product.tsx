@@ -8,6 +8,7 @@ import Loader from "./Loader";
 import Description from "./Description";
 import Carousel from "./Carousel";
 import Image from "next/image";
+import { toast } from "sonner";
 import "../styles/product.css";
 
 interface ProductPropsI {
@@ -23,9 +24,12 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
   const [isSelected, setSelected] = useState("");
   const [isProduct, setIsProduct] = useState({
     userId: `${userIdCookie}`,
+    selectedSizeFromShelter: [],
     items: {},
   });
-  const { mutate, error, isPending } = useRequestPost(
+  const [isKeepSize, setIsKeppSize] = useState([]);
+
+  const { mutate, error } = useRequestPost(
     "cart",
     `${userIdCookie}`,
     isProduct
@@ -33,21 +37,9 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
 
   useEffect(() => {
     if (data) {
-      setIsProduct({
-        userId: `${userIdCookie}`,
-        items: {
-          prodId: data._id,
-          name: data.name,
-          price: data.price,
-          sizes: [{ size: `${isSelected}`, value: 1 }],
-          image: [...data.image],
-        },
-      });
+      setIsKeppSize([]);
     }
-  }, [data, userIdCookie]);
-  if (error) {
-    console.log(error);
-  }
+  }, [data]);
 
   if (isLoading || prods === undefined) {
     return <Loader />;
@@ -59,14 +51,24 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
 
   const handleClick = (id: string) => {
     setSelected(id);
+    const selectedSizeFromShelter = data.sizes.find(
+      (item: any) => item.size === id
+    );
+
+    if (!selectedSizeFromShelter) {
+      toast.error("Выбранный размер отсутствует на складе");
+      return;
+    }
+
     setIsProduct({
       userId: `${userIdCookie}`,
+      selectedSizeFromShelter: selectedSizeFromShelter,
       items: [
         {
           prodId: data._id,
           name: data.name,
           price: data.price,
-          sizes: [{ size: `${id}`, value: 1 }],
+          sizes: [{ size: id, value: 1 }],
           image: [...data.image],
         },
       ],
@@ -76,13 +78,13 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
   const onSend = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!isSelected) {
-      console.log("Размер не выбранн");
-    }
-
-    try {
-      mutate();
-    } catch (error) {
-      console.log(error);
+      toast.error("Выберите размер");
+    } else {
+      try {
+        mutate();
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 

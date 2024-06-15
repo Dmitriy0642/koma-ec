@@ -12,5 +12,6 @@ export const useRequestById = (collection: string, id: string) => {
     queryKey: [`${collection}/${id}`],
     queryFn: fetchData,
   });
+
   return { data, isLoading, isError };
 };

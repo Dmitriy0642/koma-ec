@@ -36,7 +36,9 @@ const Carousel: React.FC<CarouselProps> = ({
       <div className={block}>
         <p className="title_last_arrivals">Latest arrivals</p>
         <p className="view_catalog_tittle">
-          <Link href="/catalog">view catalog</Link>
+          <Link href="/catalog" className="link_href_catalog">
+            view catalog
+          </Link>
         </p>
       </div>
       <div className={carouselblock}>

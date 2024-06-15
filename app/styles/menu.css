@@ -1,7 +1,3 @@
-a {
-  color: white;
-}
-
 .burgermenu_bar {
   background: black;
   margin-top: 20px;
@@ -61,6 +57,10 @@ a {
   font-size: 18px;
 }
 
+.link_href {
+  color: white;
+}
+
 /*  menubar cart */
 
 .wrapper_buregercart {
@@ -78,6 +78,7 @@ a {
   display: none;
   z-index: 999;
   overflow: hidden;
+  font-family: Helvetica;
 }
 
 .burgercart_header {

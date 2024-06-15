@@ -1,6 +1,3 @@
-a {
-  color: black;
-}
 .carousel-container {
   position: absolute;
   z-index: 1;
@@ -53,10 +50,14 @@ a {
 }
 
 .view_catalog_tittle {
+  color: black;
   font-family: "PixelBit";
   font-size: 21px;
   text-transform: uppercase;
   cursor: pointer;
+}
+.link_href_catalog {
+  color: black;
 }
 
 .carousel-container_xl {

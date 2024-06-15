@@ -10,13 +10,13 @@ import SortingNavBar from "../components/SortingNavBar";
 import SortingGender from "../components/SortingGender";
 import LatestArrivals from "../components/LatestArrivals";
 import FiltersToggle from "../components/FiltersToggle";
-import { useRouter } from "next/navigation";
+import Loader from "../components/Loader";
 import "../styles/catalog.css";
 
 type FilterType = "category" | "subcategory" | "brands" | "gender";
 
 export default function Home() {
-  const { data } = useRequest("products");
+  const { data, isLoading } = useRequest("products");
   const [filters, setFilters] = useState<Filters>({
     gender: ["For Him"],
     category: [],
@@ -24,6 +24,11 @@ export default function Home() {
     brands: [],
   });
   const [open, setIsOpen] = useState(false);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   const handleSelectFilter = (filterType: string, value: string) => {
     setFilters((prevFilters) => {
       const filterKey = filterType as FilterType;

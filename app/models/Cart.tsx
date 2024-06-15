@@ -17,6 +17,7 @@ const cartItemSchema = new Schema({
 const cartSchema = new Schema({
   userId: { type: String, required: true, unique: true },
   items: [cartItemSchema],
+  selectedSizeFromShelter: [sizesSchema],
 });
 
 const Cart = mongoose.models.Cart || mongoose.model("Cart", cartSchema);

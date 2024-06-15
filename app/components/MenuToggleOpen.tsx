@@ -48,7 +48,7 @@ const MenuToggleOpen: React.FC = () => {
           <ul className="list_of_actions">
             {data.map((item: { _id: string; name: string; href: string }) => (
               <li className="list_item" key={item._id}>
-                <Link onClick={onClick} href={item.href}>
+                <Link onClick={onClick} className="link_href" href={item.href}>
                   {item.name}
                 </Link>
               </li>
