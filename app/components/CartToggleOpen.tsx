@@ -28,7 +28,6 @@ const CartToggleOpen: React.FC = () => {
   if (isLoading) {
     return <Loader />;
   }
-  console.log(isGeneralAmount);
 
   const onClick = () => {
     const element = document.querySelector(
