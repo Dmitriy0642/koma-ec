@@ -18,3 +18,17 @@ interface Filters {
 interface SortingButtonsProps {
   data: string[];
 }
+
+interface CartItem {
+  prodId: string;
+  name: string;
+  price: number;
+  sizes: SizeWithQuantity[];
+  image: string[];
+  _id: string;
+}
+
+interface SizeWithQuantity {
+  size: string;
+  value: number;
+}

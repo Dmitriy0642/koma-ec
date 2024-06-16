@@ -12,7 +12,7 @@ export async function GET(req: Request, { params }: Params) {
   try {
     await ConnectDataBase();
     const id = params.id;
-    const findByUserId = await Cart.findOne({ _id: id });
+    const findByUserId = await Cart.findOne({ userId: id });
     if (!findByUserId) {
       return NextResponse.json({
         message: "You don't have any items in your cart",

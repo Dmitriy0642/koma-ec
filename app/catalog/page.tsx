@@ -73,7 +73,7 @@ export default function Home() {
     <main className="body_wrapper">
       <div className="catalog_wrapper">
         <section>
-          <p className="title_routing">home / catalog</p>
+          <p className="title_naming_of_route">home / catalog</p>
         </section>
         <section className="text_blok">
           <section className="block_first">

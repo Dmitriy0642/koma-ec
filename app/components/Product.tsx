@@ -90,7 +90,7 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
 
   return (
     <div className="wrapper_product">
-      <p className="title_routing">Головна / Каталог / {data.name}</p>
+      <p className="title_naming">Головна / Каталог / {data.name}</p>
       <div className="wrapper_conext">
         <div className="conext">
           <div className="carousel_product">

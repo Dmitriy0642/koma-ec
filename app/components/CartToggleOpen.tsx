@@ -1,8 +1,35 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { getCookieValue } from "../util/cookiesMatcher";
+import { useRequestById } from "../hooks/useRequestById";
+import Loader from "./Loader";
 import "../styles/menu.css";
+
 const CartToggleOpen: React.FC = () => {
+  const userId = getCookieValue("userId");
+  const { data, isError, isLoading } = useRequestById("cart", `${userId}`);
+  const [isGeneralAmount, setIsGeneralAmount] = useState(0);
+  useEffect(() => {
+    if (data && data.items) {
+      const totalAmount = data.items.reduce((sum: number, item: CartItem) => {
+        const itemTotal = item.sizes.reduce(
+          (itemSum: number, size: SizeWithQuantity) =>
+            itemSum + item.price * size.value,
+          0
+        );
+
+        return sum + itemTotal;
+      }, 0);
+
+      setIsGeneralAmount(totalAmount);
+    }
+  }, [data]);
+  if (isLoading) {
+    return <Loader />;
+  }
+  console.log(isGeneralAmount);
+
   const onClick = () => {
     const element = document.querySelector(
       ".wrapper_buregercart"
@@ -11,6 +38,7 @@ const CartToggleOpen: React.FC = () => {
       element.style.display = "none";
     }
   };
+
   return (
     <div className="wrapper_buregercart">
       <section className="burgercart_block">
@@ -35,37 +63,41 @@ const CartToggleOpen: React.FC = () => {
             ></Image>
           </section>
         </section>
-        <section className="product_block">
-          <Image
-            src="/image.png"
-            width={100}
-            height={100}
-            priority
-            alt="product_picture"
-          ></Image>
-          <section className="first_block">
-            <p className="name_of_product">
-              Garhartt WIP OG Chore Chromc Coat "Dearborn" Canvas
-            </p>
-            <p className="product_size">Size:M</p>
-            <section className="button_block">
-              <button className="button_plus">+</button>
-              <p className="product_amount">0</p>
-              <button className="button_minus">-</button>
+        {data.items.map((item: CartItem) => (
+          <div key={item._id}>
+            <section className="product_block">
+              <Image
+                className="picture_prod_in_cart"
+                src={item.image[0]}
+                width={100}
+                height={100}
+                priority
+                alt="product_picture"
+              ></Image>
+              <section className="first_block">
+                <p className="name_of_product">{item.name}</p>
+                <div className="block_with_sizes" key={item.name}>
+                  {item.sizes.map((elem: any) => (
+                    <p className="product_size" key={elem.size}>
+                      {elem.size}
+                    </p>
+                  ))}
+                </div>
+              </section>
+              <section className="second_block">
+                <button className="button_delete_product">Delete</button>
+                <p className="product_anmout">{item.price} UAH</p>
+              </section>
             </section>
-          </section>
-          <section className="second_block">
-            <button className="button_delete_product">Delete</button>
-            <p className="product_anmout">6 999 UAH</p>
-          </section>
-        </section>
+          </div>
+        ))}
         <section className="payment_block">
           <section className="left_part">
             <h2 className="title_total">total:</h2>
             <p className="expression_shipping">Amount include shipping</p>
           </section>
           <section className="right_part">
-            <h2 className="amount_price">6 999 UAH</h2>
+            <h2 className="amount_price">{isGeneralAmount} UAH</h2>
           </section>
         </section>
         <section className="checkout_block">
