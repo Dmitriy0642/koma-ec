@@ -9,7 +9,6 @@ const page = ({ params }: { params: { id: string } }) => {
   if (isLoading) {
     return <Loader />;
   }
-
   return (
     <div className="wrapper_product">
       <Product id={params.id} prods={data} />

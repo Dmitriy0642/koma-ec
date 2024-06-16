@@ -46,79 +46,127 @@ const CartToggleOpen: React.FC = () => {
 
   return (
     <div className="wrapper_buregercart">
-      <section className="burgercart_block">
-        <section className="burgercart_header">
-          <section className="title_cart">your cart</section>
-          <Image
-            src="/coma_smal_white.png"
-            className="koma_logo_white_cart"
-            width={20}
-            height={40}
-            priority
-            alt="komasmalllogo"
-          ></Image>
-          <section className="close_block" onClick={onClick}>
+      {data.message ? (
+        <section className="burgercart_block">
+          <section className="burgercart_header">
+            <section className="title_cart">your cart</section>
             <Image
-              src="/cross.png"
-              width={14}
-              height={14}
+              src="/coma_smal_white.png"
+              className="koma_logo_white_cart"
+              width={20}
+              height={40}
               priority
-              alt="cross"
-              className="close_button"
-            ></Image>
-          </section>
-        </section>
-        {data.items.map((item: CartItem) => (
-          <div key={item._id}>
-            <section className="product_block">
+              alt="komasmalllogo"
+            />
+            <section className="close_block" onClick={onClick}>
               <Image
-                className="picture_prod_in_cart"
-                src={item.image[0]}
-                width={100}
-                height={100}
+                src="/cross.png"
+                width={14}
+                height={14}
                 priority
-                alt="product_picture"
-              ></Image>
-              <section className="first_block">
-                <p className="name_of_product">{item.name}</p>
-                <div className="block_with_sizes" key={item.name}>
-                  {item.sizes.map((elem: any) => (
-                    <p className="product_size" key={elem.size}>
-                      {elem.size}
-                    </p>
-                  ))}
-                </div>
-              </section>
-              <section className="second_block">
-                <button className="button_delete_product">Delete</button>
-                <p className="product_anmout">{item.price} UAH</p>
-              </section>
+                alt="cross"
+                className="close_button"
+              />
             </section>
-          </div>
-        ))}
-        <section className="payment_block">
-          <section className="left_part">
-            <h2 className="title_total">total:</h2>
-            <p className="expression_shipping">Amount include shipping</p>
           </section>
-          <section className="right_part">
-            <h2 className="amount_price">{isGeneralAmount} UAH</h2>
+          <section className="payment_block">
+            <section className="left_part">
+              <h2 className="title_total">total:</h2>
+              <p className="expression_shipping">Amount include shipping</p>
+            </section>
+            <section className="right_part">
+              <h2 className="amount_price">{isGeneralAmount} UAH</h2>
+            </section>
+          </section>
+          <section className="checkout_block">
+            <button className="button_checkout">
+              checkout
+              <Image
+                src="/arrow_small.png"
+                className="arrow_in_button_submit"
+                width={18.33}
+                height={11}
+                alt="arrow_small"
+                priority
+              />
+            </button>
           </section>
         </section>
-        <section className="checkout_block">
-          <button className="button_checkout">
-            checkout
+      ) : (
+        <>
+          <section className="burgercart_header">
+            <section className="title_cart">your cart</section>
             <Image
-              src="/arrow_small.png"
-              className="arrow_in_button_submit"
-              width={18.33}
-              height={11}
-              alt="arrow_small"
+              src="/coma_smal_white.png"
+              className="koma_logo_white_cart"
+              width={20}
+              height={40}
               priority
-            ></Image>
-          </button>
-        </section>
-      </section>
+              alt="komasmalllogo"
+            />
+            <section className="close_block" onClick={onClick}>
+              <Image
+                src="/cross.png"
+                width={14}
+                height={14}
+                priority
+                alt="cross"
+                className="close_button"
+              />
+            </section>
+          </section>
+          {data.items.map((item: CartItem) => (
+            <div key={item._id}>
+              <section className="product_block">
+                <Image
+                  className="picture_prod_in_cart"
+                  src={item.image[0]}
+                  width={100}
+                  height={100}
+                  priority
+                  alt="product_picture"
+                />
+                <section className="first_block">
+                  <p className="name_of_product">{item.name}</p>
+                  <div className="block_with_sizes" key={item.name}>
+                    {item.sizes.map((elem: any) => (
+                      <p className="product_size" key={elem.size}>
+                        {elem.size}
+                      </p>
+                    ))}
+                  </div>
+                </section>
+                <section className="second_block">
+                  <button className="button_delete_product">Delete</button>
+                  <p className="product_anmout">{item.price} UAH</p>
+                </section>
+              </section>
+            </div>
+          ))}
+          <section className="payment_block">
+            <section className="left_part">
+              <h2 className="title_total">total:</h2>
+              <p className="expression_shipping">Amount include shipping</p>
+            </section>
+            <section className="right_part">
+              <h2 className="amount_price">{isGeneralAmount} UAH</h2>
+            </section>
+          </section>
+          <section className="checkout_block">
+            <button className="button_checkout">
+              checkout
+              <Image
+                src="/arrow_small.png"
+                className="arrow_in_button_submit"
+                width={18.33}
+                height={11}
+                alt="arrow_small"
+                priority
+              />
+            </button>
+          </section>
+        </>
+      )}
     </div>
   );
 };

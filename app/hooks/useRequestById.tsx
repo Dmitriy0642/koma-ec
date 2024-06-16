@@ -5,8 +5,10 @@ import { useQuery } from "@tanstack/react-query";
 
 export const useRequestById = (collection: string, id: string) => {
   const fetchData = async () => {
-    const { data } = await axios.get(`${BASE_URL}/${collection}/${id}`);
-    return data;
+    if (id.length !== 0) {
+      const { data } = await axios.get(`${BASE_URL}/${collection}/${id}`);
+      return data;
+    }
   };
 
   const { data, isLoading, isError } = useQuery({
