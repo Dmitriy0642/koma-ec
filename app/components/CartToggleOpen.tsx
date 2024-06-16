@@ -7,8 +7,10 @@ import Loader from "./Loader";
 import "../styles/menu.css";
 
 const CartToggleOpen: React.FC = () => {
-  const userId = getCookieValue("userId");
-  const { data, isError, isLoading } = useRequestById("cart", `${userId}`);
+  const [isUserId, setIsUserId] = useState("");
+
+  const { data, isError, isLoading } = useRequestById("cart", `${isUserId}`);
+
   const [isGeneralAmount, setIsGeneralAmount] = useState(0);
   useEffect(() => {
     if (data && data.items) {
@@ -23,6 +25,10 @@ const CartToggleOpen: React.FC = () => {
       }, 0);
 
       setIsGeneralAmount(totalAmount);
+    }
+    const userId = getCookieValue();
+    if (userId) {
+      setIsUserId(userId);
     }
   }, [data]);
   if (isLoading) {

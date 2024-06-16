@@ -8,6 +8,7 @@ export const useRequestById = (collection: string, id: string) => {
     const { data } = await axios.get(`${BASE_URL}/${collection}/${id}`);
     return data;
   };
+
   const { data, isLoading, isError } = useQuery({
     queryKey: [`${collection}/${id}`],
     queryFn: fetchData,

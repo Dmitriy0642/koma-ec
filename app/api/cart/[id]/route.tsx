@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import ConnectDataBase from "@/app/lib/ConnectDb";
 import Cart from "@/app/models/Cart";
 import Product from "@/app/models/Product";
+import { cookies } from "next/headers";
 interface Params {
   params: {
     id: string;

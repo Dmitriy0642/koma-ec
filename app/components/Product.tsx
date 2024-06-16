@@ -18,7 +18,7 @@ interface ProductPropsI {
 }
 
 const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
-  const userIdCookie = getCookieValue("userId");
+  const userIdCookie = getCookieValue();
   const { data, isLoading, isError } = useRequestById("products", `${id}`);
 
   const [isSelected, setSelected] = useState("");
