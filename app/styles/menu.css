@@ -10,7 +10,7 @@
   border-radius: 10px;
   display: none;
   overflow: hidden;
-  z-index: 999;
+  z-index: 9999;
   font-family: Helvetica;
 }
 
@@ -80,6 +80,7 @@
   overflow: hidden;
   font-family: Helvetica;
 }
+
 .picture_prod_in_cart {
   object-fit: contain;
 }

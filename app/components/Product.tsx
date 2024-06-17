@@ -29,11 +29,7 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
   });
   const [isKeepSize, setIsKeppSize] = useState([]);
 
-  const { mutate, error } = useRequestPost(
-    "cart",
-    `${userIdCookie}`,
-    isProduct
-  );
+  const { mutate } = useRequestPost("cart", `${userIdCookie}`, isProduct);
 
   useEffect(() => {
     if (data) {

@@ -3,15 +3,19 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { getCookieValue } from "../util/cookiesMatcher";
 import { useRequestById } from "../hooks/useRequestById";
+import { useRequestDelete } from "../hooks/useRequestPost";
+import { useRouter } from "next/navigation";
 import Loader from "./Loader";
 import "../styles/menu.css";
 
 const CartToggleOpen: React.FC = () => {
   const [isUserId, setIsUserId] = useState("");
-
+  const [isSelected, setIsSelected] = useState("");
   const { data, isError, isLoading } = useRequestById("cart", `${isUserId}`);
-
+  const router = useRouter();
+  const { mutate } = useRequestDelete("cart", isUserId, isSelected);
   const [isGeneralAmount, setIsGeneralAmount] = useState(0);
+
   useEffect(() => {
     if (data && data.items) {
       const totalAmount = data.items.reduce((sum: number, item: CartItem) => {
@@ -31,6 +35,12 @@ const CartToggleOpen: React.FC = () => {
       setIsUserId(userId);
     }
   }, [data]);
+  useEffect(() => {
+    if (isSelected.length > 0) {
+      mutate();
+    }
+  }, [isSelected]);
+
   if (isLoading) {
     return <Loader />;
   }
@@ -44,9 +54,18 @@ const CartToggleOpen: React.FC = () => {
     }
   };
 
+  const onDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const prodId = e.currentTarget.id;
+    try {
+      setIsSelected(prodId);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="wrapper_buregercart">
-      {data.message ? (
+      {data.message || data.items.length === 0 ? (
         <section className="burgercart_block">
           <section className="burgercart_header">
             <section className="title_cart">your cart</section>
@@ -69,28 +88,14 @@ const CartToggleOpen: React.FC = () => {
               />
             </section>
           </section>
+          <section className="empty_block"></section>
           <section className="payment_block">
             <section className="left_part">
               <h2 className="title_total">total:</h2>
               <p className="expression_shipping">Amount include shipping</p>
             </section>
-            <section className="right_part">
-              <h2 className="amount_price">{isGeneralAmount} UAH</h2>
-            </section>
           </section>
-          <section className="checkout_block">
-            <button className="button_checkout">
-              checkout
-              <Image
-                src="/arrow_small.png"
-                className="arrow_in_button_submit"
-                width={18.33}
-                height={11}
-                alt="arrow_small"
-                priority
-              />
-            </button>
-          </section>
+          <section className="checkout_block"></section>
         </section>
       ) : (
         <>
@@ -137,7 +142,13 @@ const CartToggleOpen: React.FC = () => {
                   </div>
                 </section>
                 <section className="second_block">
-                  <button className="button_delete_product">Delete</button>
+                  <button
+                    className="button_delete_product"
+                    id={item.prodId}
+                    onClick={onDelete}
+                  >
+                    Delete
+                  </button>
                   <p className="product_anmout">{item.price} UAH</p>
                 </section>
               </section>

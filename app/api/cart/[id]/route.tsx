@@ -132,26 +132,28 @@ export async function POST(req: Request) {
   }
 }
 
-export async function DELETE(req: Request) {
+export async function DELETE(req: Request, { params }: Params) {
   try {
     const data = await req.json();
-    const prodId = data.prodId;
-    const userId = data.userId;
-    if (!prodId || !userId) {
+
+    const uId = params.id;
+    const pId = data.prodId;
+
+    if (!uId || !pId) {
       return NextResponse.json(
         { message: "You must fill all gaps" },
         { status: 500 }
       );
     }
 
-    const findCartByUid = await Cart.findOne({ userId: userId });
+    const findCartByUid = await Cart.findOne({ userId: uId });
 
     if (!findCartByUid) {
       return NextResponse.json({ message: "You don't have a cart" });
     } else {
       const itemsInBascet = findCartByUid.items;
       const itemsWithout = itemsInBascet.filter(
-        (item: any) => item.prodId !== prodId
+        (item: any) => item.prodId !== pId
       );
       findCartByUid.items = itemsWithout;
       await findCartByUid.save();
