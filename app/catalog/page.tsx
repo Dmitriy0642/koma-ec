@@ -14,9 +14,16 @@ import Loader from "../components/Loader";
 import "../styles/catalog.css";
 
 type FilterType = "category" | "subcategory" | "brands" | "gender";
+type Filters = {
+  gender: string[];
+  category: string[];
+  subcategory: string[];
+  brands: string[];
+};
 
 export default function Home() {
   const { data, isLoading } = useRequest("products");
+
   const [filters, setFilters] = useState<Filters>({
     gender: ["For Him"],
     category: [],
@@ -29,6 +36,34 @@ export default function Home() {
     return <Loader />;
   }
 
+  const filterProducts = (products: any) => {
+    return products.filter((product: any) => {
+      const categoryMatch = filters.category.length
+        ? filters.category
+            .map((category) => category.toLowerCase())
+            .includes(product.category)
+        : true;
+
+      const subcategoryMatch = filters.subcategory.length
+        ? filters.subcategory
+            .map((subcategory) => subcategory.toLowerCase())
+            .includes(product.subcategory)
+        : true;
+      console.log(
+        filters.subcategory.map((item: string) => item.toLowerCase())
+      );
+
+      const brandsMatch = filters.brands.length
+        ? filters.brands
+            .map((brand) => brand.toLowerCase())
+            .includes(product.brand.toLowerCase())
+        : true;
+
+      return categoryMatch && subcategoryMatch && brandsMatch;
+    });
+  };
+
+  ///Добавления удаления выбранных элементов сортировки
   const handleSelectFilter = (filterType: string, value: string) => {
     setFilters((prevFilters) => {
       const filterKey = filterType as FilterType;
@@ -49,6 +84,7 @@ export default function Home() {
     });
   };
 
+  ///онклик кнопок сортировки
   const onClick = (
     e: React.MouseEvent<HTMLButtonElement>,
     filterType: FilterType
@@ -65,9 +101,13 @@ export default function Home() {
       brands: [],
     });
   };
+
   const isOpen = (open: boolean) => {
     setIsOpen(!open);
   };
+
+  const filteredProducts = filterProducts(data);
+  console.log(filteredProducts);
 
   return (
     <main className="body_wrapper">
@@ -130,7 +170,7 @@ export default function Home() {
             />
           </section>
           <section className="content_product">
-            <CatalogProducts products={data} />
+            <CatalogProducts products={filteredProducts} />
           </section>
           <section className="latest_arrivals_block">
             <LatestArrivals />

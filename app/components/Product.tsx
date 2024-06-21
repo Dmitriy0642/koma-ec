@@ -47,6 +47,8 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
 
   const handleClick = (id: string) => {
     setSelected(id);
+    console.log(id);
+
     const selectedSizeFromShelter = data.sizes.find(
       (item: any) => item.size === id
     );

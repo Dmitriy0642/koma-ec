@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="body_wrapper">
       <section className="routing_block">
-        <span className="routing_text">Головна / про нас</span>
+        <span className="routing_text">Головна / оплата та доставка</span>
       </section>
       <div className="wrapper_paymentdelivery">
         <section className="conten_payment">

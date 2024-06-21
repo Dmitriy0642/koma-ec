@@ -3,6 +3,7 @@ import React from "react";
 import { useRequest } from "../hooks/useRequest";
 import Image from "next/image";
 import Loader from "./Loader";
+import { useRouter } from "next/navigation";
 import "../styles/latestarrivals.css";
 
 const LatestArrivals: React.FC = () => {
@@ -12,6 +13,15 @@ const LatestArrivals: React.FC = () => {
     return <Loader />;
   }
 
+  const router = useRouter();
+  const onClick = (id: string) => {
+    const currentPath = window.location.pathname;
+    const newPath = `/catalog/${id}`;
+
+    if (currentPath !== newPath) {
+      router.push(newPath);
+    }
+  };
   return (
     <div className="carousel">
       <div className="carousel-track">
@@ -21,6 +31,7 @@ const LatestArrivals: React.FC = () => {
             className={`carousel-item ${index % 3 === 2 ? "large" : "small"}`}
           >
             <Image
+              onClick={() => onClick(item._id)}
               className={`item ${index % 3 === 2 ? "large" : "small"}`}
               src={item.image[0]}
               width={index % 3 === 2 ? 414 : 203}

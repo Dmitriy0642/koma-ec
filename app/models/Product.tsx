@@ -1,13 +1,10 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-const sizesSchema = new Schema(
-  {
-    sizes: { type: String, required: true },
-    value: { type: Number, required: true },
-  },
-  { _id: true }
-);
+const sizesSchema = new Schema({
+  size: { type: String, required: true },
+  value: { type: Number, required: true },
+});
 
 const ProductSchema = new Schema({
   name: { type: String, required: true },
@@ -19,6 +16,13 @@ const ProductSchema = new Schema({
   subcategory: { type: String, required: true },
   price: { type: Number, required: true },
   image: { type: [String], required: true },
+  productCode: { type: String, required: true },
+  countryManyfacture: { type: String, required: true },
+  gender: { type: String, required: true },
+  composition: { type: String, required: true },
+  features: { type: String, required: true },
+  description: { type: String, required: true },
+  priceUsd: { type: Number, required: true },
 });
 
 const Product =

@@ -24,6 +24,8 @@ const CatalogProducts: React.FC<PropsProductsCatalog> = ({ products }) => {
       router.push(newPath);
     }
   };
+  // console.log(products);
+
   return (
     <div className="product_container">
       {products.map((item) => (

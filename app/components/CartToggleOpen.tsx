@@ -63,6 +63,19 @@ const CartToggleOpen: React.FC = () => {
     }
   };
 
+  const onMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const path = "/cart";
+    if (path) {
+      const element = document.querySelector(
+        ".wrapper_buregercart"
+      ) as HTMLElement | null;
+      if (element) {
+        element.style.display = "none";
+      }
+    }
+    router.push(path);
+  };
+
   return (
     <div className="wrapper_buregercart">
       {data.message || data.items.length === 0 ? (
@@ -164,7 +177,7 @@ const CartToggleOpen: React.FC = () => {
             </section>
           </section>
           <section className="checkout_block">
-            <button className="button_checkout">
+            <button className="button_checkout" onClick={onMove}>
               checkout
               <Image
                 src="/arrow_small.png"

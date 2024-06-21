@@ -6,12 +6,23 @@ export async function POST(req: Request) {
   try {
     await ConnectDataBase();
     const data = await req.json();
-    if (!data.name || !data.sizes || !data.image) {
+    if (
+      !data.name ||
+      !data.sizes ||
+      !data.image ||
+      !data.subcategory ||
+      !data.category ||
+      !data.price ||
+      !data.productCode ||
+      !data.countryManyfacture ||
+      !data.gender
+    ) {
       return NextResponse.json(
         { message: "You need fell all gaps" },
         { status: 500 }
       );
     }
+
     const findOne = await Product.findOne({ name: data.name });
     if (findOne !== null) {
       return NextResponse.json(
@@ -21,14 +32,23 @@ export async function POST(req: Request) {
     } else {
       const createProduct = await Product.create({
         name: data.name,
+        status: data.status,
         color: data.color,
         sizes: data.sizes,
         firm: data.firm,
+        category: data.category,
+        subcategory: data.subcategory,
         price: data.price,
-        status: data.status,
         image: data.image,
+        productCode: data.productCode,
+        countryManyfacture: data.countryManyfacture,
+        gender: data.gender,
+        composition: data.composition,
+        features: data.features,
+        description: data.description,
+        priceUsd: data.priceUsd,
       });
-      return NextResponse.json(createProduct);
+      return NextResponse.json(createProduct, { status: 200 });
     }
   } catch (error) {
     return NextResponse.json(
