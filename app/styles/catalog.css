@@ -86,6 +86,56 @@
   display: none;
 }
 
+.openSortingMenu {
+  width: 261px;
+  height: auto;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 2%;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.list_of_sorting_bar {
+  margin-top: 24px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  color: rgb(152, 152, 152);
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: right;
+  height: auto;
+  overflow: hidden;
+}
+
+.list_of_sorting_bar:hover {
+  color: white;
+}
+.succes_selected {
+  margin-right: 7px;
+}
+
+.list_of_sorting_bar_selected {
+  margin-top: 24px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 1);
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  height: auto;
+  overflow: hidden;
+}
+
+.list_of_sorting_bar_selected:hover {
+  color: rgb(152, 152, 152);
+}
+
 @media (max-width: 1250px) {
   .latest_arrivals_block {
     display: none;

@@ -7,6 +7,7 @@ import { useRequestById } from "../hooks/useRequestById";
 import { useRequestDelete } from "../hooks/useRequestPost";
 import Loader from "../components/Loader";
 import "../styles/cart.css";
+import ButtonsInCart from "../components/ButtonsInCart";
 
 const Cart: React.FC = () => {
   const [isDescription, setIsDescription] = useState("");
@@ -51,6 +52,9 @@ const Cart: React.FC = () => {
   if (isLoading) {
     return <Loader />;
   }
+  if (isError) {
+    console.log(isError);
+  }
 
   const onDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
     const prodId = e.currentTarget.id;
@@ -60,6 +64,7 @@ const Cart: React.FC = () => {
       console.log(error);
     }
   };
+
   return (
     <div className="main_warp">
       {data.message || data.items.length === 0 ? (
@@ -72,34 +77,35 @@ const Cart: React.FC = () => {
             <div className="block_prod_cart">
               <div className="line"></div>
               {data.items.map((item: CartItem) => (
-                <div key={item._id}>
-                  <div className="product_content">
-                    <Image
-                      src={`${item.image[0]}`}
-                      alt="product_image"
-                      width={119}
-                      height={119}
-                      className="pic_prod_cart"
-                    ></Image>
-                    <div className="line_naming">
-                      <p className="title_of_product">{item.name}</p>
-                      <p className="size_description">Розмір: M</p>
-                    </div>
-                    <div className="line_desciption_of_prod">
+                <div key={item._id} className="item_product">
+                  <Image
+                    src={item.image[0]}
+                    width={119}
+                    height={119}
+                    alt="product_item"
+                    className="prod_images"
+                    priority
+                  ></Image>
+                  <div className="product_description_body">
+                    <div className="first_line_description">
+                      <p className="item_name">{item.name}</p>
                       <button
-                        className="button_remove"
+                        className="delete_button_in_cart"
                         id={item.prodId}
                         onClick={onDelete}
                       >
                         Видалити
                       </button>
-                      <p className="prod_prices">{item.price} ГРН</p>
+                    </div>
+                    <div className="sizes_block_in_cart">
+                      <ButtonsInCart sizes={item.sizes} price={item.price} />
                     </div>
                   </div>
-                  <div className="line"></div>
                 </div>
               ))}
+              <div className="line"></div>
             </div>
+
             <div className="order_block">
               <div className="line_order_block"></div>
               <div className="block_final_amount">

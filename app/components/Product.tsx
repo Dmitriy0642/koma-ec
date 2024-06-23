@@ -7,6 +7,7 @@ import { useRequestPost } from "../hooks/useRequestPost";
 import Loader from "./Loader";
 import Description from "./Description";
 import Carousel from "./Carousel";
+import Notification from "./Notification";
 import Image from "next/image";
 import { toast } from "sonner";
 import "../styles/product.css";
@@ -27,6 +28,7 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
     selectedSizeFromShelter: [],
     items: {},
   });
+  const [isNotification, setIsNotification] = useState(false);
   const [isKeepSize, setIsKeppSize] = useState([]);
 
   const { mutate } = useRequestPost("cart", `${userIdCookie}`, isProduct);
@@ -47,7 +49,6 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
 
   const handleClick = (id: string) => {
     setSelected(id);
-    console.log(id);
 
     const selectedSizeFromShelter = data.sizes.find(
       (item: any) => item.size === id
@@ -78,6 +79,10 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
     if (!isSelected) {
       toast.error("Выберите размер");
     } else {
+      // setIsNotification(true);
+      // setTimeout(() => {
+      //   setIsNotification(false);
+      // }, 3000);
       try {
         mutate();
       } catch (error) {
@@ -146,6 +151,9 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
           </div>
         </div>
       </div>
+      {isNotification && (
+        <Notification name={data.name} selectedSize={isSelected} />
+      )}
     </div>
   );
 };

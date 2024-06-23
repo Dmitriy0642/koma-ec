@@ -4,6 +4,7 @@ export function middleware(req: NextRequest) {
   const response = NextResponse.next();
 
   const userId = req.cookies.get("userId");
+
   if (!userId) {
     const expiresDate = new Date();
     expiresDate.setFullYear(expiresDate.getFullYear() + 1);

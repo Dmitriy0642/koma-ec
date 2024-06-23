@@ -11,6 +11,7 @@ import SortingGender from "../components/SortingGender";
 import LatestArrivals from "../components/LatestArrivals";
 import FiltersToggle from "../components/FiltersToggle";
 import Loader from "../components/Loader";
+import { sortingOptions } from "../harddata/linkInSortingBar";
 import "../styles/catalog.css";
 
 type FilterType = "category" | "subcategory" | "brands" | "gender";
@@ -31,7 +32,8 @@ export default function Home() {
     brands: [],
   });
   const [open, setIsOpen] = useState(false);
-
+  const [isOpenSortingMenu, setIsOpenSortingMenu] = useState(false);
+  const [selecteId, setSelectedId] = useState("");
   if (isLoading) {
     return <Loader />;
   }
@@ -41,29 +43,50 @@ export default function Home() {
       const categoryMatch = filters.category.length
         ? filters.category
             .map((category) => category.toLowerCase())
-            .includes(product.category)
+            .includes(product.category.toLowerCase())
         : true;
 
       const subcategoryMatch = filters.subcategory.length
         ? filters.subcategory
             .map((subcategory) => subcategory.toLowerCase())
-            .includes(product.subcategory)
+            .includes(product.subcategory.toLowerCase())
         : true;
-      console.log(
-        filters.subcategory.map((item: string) => item.toLowerCase())
-      );
 
       const brandsMatch = filters.brands.length
         ? filters.brands
             .map((brand) => brand.toLowerCase())
-            .includes(product.brand.toLowerCase())
+            .includes(product.firm.toLowerCase())
         : true;
 
       return categoryMatch && subcategoryMatch && brandsMatch;
     });
   };
 
-  ///Добавления удаления выбранных элементов сортировки
+  const sortProducts = (products: any[], sortId: string) => {
+    switch (sortId) {
+      case "cheapFirst":
+        return products.sort((a, b) => a.price - b.price);
+      case "expensiveFirst":
+        return products.sort((a, b) => b.price - a.price);
+      case "nameAsc":
+        return products.sort((a, b) => a.name.localeCompare(b.name));
+      case "nameDesc":
+        return products.sort((a, b) => b.name.localeCompare(a.name));
+      case "newFirst":
+        return products.sort(
+          (a, b) =>
+            new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime()
+        );
+      case "oldFirst":
+        return products.sort(
+          (a, b) =>
+            new Date(a.dateAdded).getTime() - new Date(b.dateAdded).getTime()
+        );
+      default:
+        return products;
+    }
+  };
+
   const handleSelectFilter = (filterType: string, value: string) => {
     setFilters((prevFilters) => {
       const filterKey = filterType as FilterType;
@@ -102,13 +125,29 @@ export default function Home() {
     });
   };
 
+  const openSortingMenu = (e: React.MouseEvent) => {
+    setIsOpenSortingMenu(!isOpenSortingMenu);
+  };
+
   const isOpen = (open: boolean) => {
     setIsOpen(!open);
   };
 
-  const filteredProducts = filterProducts(data);
-  console.log(filteredProducts);
+  const handleSelect = (e: React.MouseEvent) => {
+    const id = e.currentTarget.id;
 
+    setSelectedId(id);
+    setIsOpenSortingMenu(!isOpenSortingMenu);
+  };
+
+  const filteredProducts = filterProducts(data);
+  const sortedProducts = sortProducts(filteredProducts, selecteId);
+  const selectedOption = sortingOptions.find(
+    (option) => option.id === selecteId
+  );
+  const selectedLabel = selectedOption
+    ? selectedOption.label
+    : "sorting:(default)";
   return (
     <main className="body_wrapper">
       <div className="catalog_wrapper">
@@ -120,7 +159,41 @@ export default function Home() {
             <h1 className="title_page">catalog</h1>
           </section>
           <section className="block_second">
-            <p className="title_sorting">sort : (default)</p>
+            {!isOpenSortingMenu ? (
+              <p className="title_sorting" onClick={openSortingMenu}>
+                {selectedLabel}
+              </p>
+            ) : (
+              <div className="openSortingMenu">
+                <ul className="list_sorting_bar">
+                  {sortingOptions.map((item: { id: string; label: string }) => (
+                    <li
+                      key={item.id}
+                      id={item.id}
+                      className={`list_of_sorting_bar ${
+                        selecteId === item.id
+                          ? "list_of_sorting_bar_selected"
+                          : "list_of_sorting_bar"
+                      }`}
+                      onClick={handleSelect}
+                    >
+                      {selecteId === item.id ? (
+                        <Image
+                          className="succes_selected"
+                          src="/sucess.png"
+                          alt="selected"
+                          width={12}
+                          height={12}
+                        ></Image>
+                      ) : (
+                        <></>
+                      )}
+                      {item.label}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </section>
         </section>
         <section className="selected_sorting_categories">
@@ -170,7 +243,7 @@ export default function Home() {
             />
           </section>
           <section className="content_product">
-            <CatalogProducts products={filteredProducts} />
+            <CatalogProducts products={sortedProducts} />
           </section>
           <section className="latest_arrivals_block">
             <LatestArrivals />

@@ -3,7 +3,6 @@ import axios from "axios";
 import { BASE_URL } from "../config";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { stringify } from "querystring";
 
 export const useRequestPost = (collection: string, id: string, prod: any) => {
   const queryClient = useQueryClient();
@@ -14,6 +13,7 @@ export const useRequestPost = (collection: string, id: string, prod: any) => {
     } else if (res.status === 220) {
       toast.error("На складе , больше нет данного размера");
     }
+    return res.status;
   };
   const { mutate, error, isPending } = useMutation({
     mutationFn: fetchData,
