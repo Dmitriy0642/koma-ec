@@ -29,9 +29,14 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
     items: {},
   });
   const [isNotification, setIsNotification] = useState(false);
+  const [notificationText, isNotificationText] = useState("");
   const [isKeepSize, setIsKeppSize] = useState([]);
 
-  const { mutate } = useRequestPost("cart", `${userIdCookie}`, isProduct);
+  const { mutate, error } = useRequestPost(
+    "cart",
+    `${userIdCookie}`,
+    isProduct
+  );
 
   useEffect(() => {
     if (data) {
@@ -55,7 +60,13 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
     );
 
     if (!selectedSizeFromShelter) {
-      toast.error("Выбранный размер отсутствует на складе");
+      setIsNotification(true);
+      isNotificationText("Выбранный размер отсутствует на складе");
+      setTimeout(() => {
+        setIsNotification(false);
+        isNotificationText("");
+      }, 3000);
+
       return;
     }
 
@@ -79,12 +90,24 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
     if (!isSelected) {
       toast.error("Выберите размер");
     } else {
-      // setIsNotification(true);
-      // setTimeout(() => {
-      //   setIsNotification(false);
-      // }, 3000);
       try {
-        mutate();
+        mutate(undefined, {
+          onSuccess: (resData: any) => {
+            if (resData === 200) {
+              setIsNotification(true);
+              setTimeout(() => {
+                setIsNotification(false);
+              }, 3000);
+            } else if (resData === 220) {
+              setIsNotification(true);
+              isNotificationText("Вы добавили товар в последнем размере");
+              setTimeout(() => {
+                setIsNotification(false);
+                isNotificationText("");
+              }, 3000);
+            }
+          },
+        });
       } catch (error) {
         console.log(error);
       }
@@ -152,7 +175,7 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
         </div>
       </div>
       {isNotification && (
-        <Notification name={data.name} selectedSize={isSelected} />
+        <Notification name={data.name} notText={notificationText} />
       )}
     </div>
   );

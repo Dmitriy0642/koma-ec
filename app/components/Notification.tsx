@@ -4,10 +4,10 @@ import "../styles/notification.css";
 
 interface NotificationI {
   name: string;
-  selectedSize: string;
+  notText: string;
 }
 
-const Notification: React.FC<NotificationI> = ({ name, selectedSize }) => {
+const Notification: React.FC<NotificationI> = ({ name, notText }) => {
   return (
     <div className="notification_wrapper">
       <div className="line_in_notification">
@@ -18,9 +18,11 @@ const Notification: React.FC<NotificationI> = ({ name, selectedSize }) => {
           alt="heart"
           priority
         ></Image>
-        <p className="selected_item_to_cart">Додано до кошика</p>
+        <p className="selected_item_to_cart">
+          {notText.length > 0 ? "" : "Додано до кошика"}
+        </p>
         <p className="name_of_selected_product">
-          {name}({selectedSize})
+          {notText.length > 0 ? notText : name}
         </p>
         <p className="continue_your_shopping">Продовжити покупки</p>
       </div>

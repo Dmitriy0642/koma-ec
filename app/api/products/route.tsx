@@ -48,6 +48,8 @@ export async function POST(req: Request) {
         description: data.description,
         priceUsd: data.priceUsd,
       });
+
+      await createProduct.save();
       return NextResponse.json(createProduct, { status: 200 });
     }
   } catch (error) {
