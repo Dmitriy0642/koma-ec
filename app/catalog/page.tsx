@@ -26,7 +26,7 @@ export default function Home() {
   const { data, isLoading } = useRequest("products");
 
   const [filters, setFilters] = useState<Filters>({
-    gender: ["For Him"],
+    gender: [],
     category: [],
     subcategory: [],
     brands: [],
@@ -40,6 +40,12 @@ export default function Home() {
 
   const filterProducts = (products: any) => {
     return products.filter((product: any) => {
+      const genderMatch = filters.gender.length
+        ? filters.gender
+            .map((g) => g.toLowerCase())
+            .includes(product.gender.toLowerCase())
+        : true;
+
       const categoryMatch = filters.category.length
         ? filters.category
             .map((category) => category.toLowerCase())
@@ -58,7 +64,7 @@ export default function Home() {
             .includes(product.firm.toLowerCase())
         : true;
 
-      return categoryMatch && subcategoryMatch && brandsMatch;
+      return categoryMatch && subcategoryMatch && brandsMatch && genderMatch;
     });
   };
 

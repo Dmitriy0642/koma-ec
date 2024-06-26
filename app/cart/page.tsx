@@ -5,9 +5,9 @@ import TextArea from "../components/TextArea";
 import { getCookieValue } from "../util/cookiesMatcher";
 import { useRequestById } from "../hooks/useRequestById";
 import { useRequestDelete } from "../hooks/useRequestPost";
+import ButtonsInCart from "../components/ButtonsInCart";
 import Loader from "../components/Loader";
 import "../styles/cart.css";
-import ButtonsInCart from "../components/ButtonsInCart";
 
 const Cart: React.FC = () => {
   const [isDescription, setIsDescription] = useState("");
@@ -98,7 +98,11 @@ const Cart: React.FC = () => {
                       </button>
                     </div>
                     <div className="sizes_block_in_cart">
-                      <ButtonsInCart sizes={item.sizes} price={item.price} />
+                      <ButtonsInCart
+                        sizes={item.sizes}
+                        price={item.price}
+                        prodId={item.prodId}
+                      />
                     </div>
                   </div>
                 </div>

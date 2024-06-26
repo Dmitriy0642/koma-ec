@@ -155,13 +155,23 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
                 </button>
               ))}
             </div>
-            <p className="price_of_prod">{data.price} UAN / 170$</p>
+            <p className="price_of_prod">
+              {data.price} UAN / {data.priceUsd}$
+            </p>
             <button className="add_to_bascet" onClick={(e) => onSend(e)}>
               Додати до кошика
             </button>
           </div>
           <div className="line"></div>
-          <Description />
+          <Description
+            codeProduct={data.productCode}
+            brand={data.firm}
+            countryManufacture={data.countryManyfacture}
+            composition={data.composition}
+            gender={data.gender}
+            features={data.features}
+            description={data.description}
+          />
           <div className="line"></div>
           <div className="block_with_carousel">
             <Carousel

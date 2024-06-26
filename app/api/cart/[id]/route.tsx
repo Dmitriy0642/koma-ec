@@ -166,3 +166,80 @@ export async function DELETE(req: Request, { params }: Params) {
     );
   }
 }
+
+export async function PATCH(req: Request, { params }: Params) {
+  try {
+    await ConnectDataBase();
+    const data = await req.json();
+    const prodId = data.prodId;
+    const size = data.size;
+    const action = data.action;
+    const uId = params.id;
+
+    const findProductInShelter = await Product.findOne({ _id: prodId });
+    const findProductInCart = await Cart.findOne({ userId: uId });
+
+    if (!findProductInShelter || !findProductInCart) {
+      return NextResponse.json(
+        { message: "Данного продукта не существует" },
+        { status: 500 }
+      );
+    } else {
+      const sizesInShelter = findProductInShelter.sizes;
+      const productsInCart = findProductInCart.items;
+
+      const exactlyProductInCart = productsInCart.find(
+        (item: { prodId: string }) => item.prodId === prodId
+      );
+      const sizesInCart = exactlyProductInCart.sizes;
+      const selectedSizeInCart = sizesInCart.find(
+        (item: { size: string; value: number }) => item.size === size
+      );
+      const selectedSizeShelter = sizesInShelter.find(
+        (item: { size: string; value: number }) => item.size === size
+      );
+
+      if (selectedSizeInCart && selectedSizeShelter) {
+        if (action === "increment") {
+          if (selectedSizeInCart.value < selectedSizeShelter.value) {
+            selectedSizeInCart.value += 1;
+          } else {
+            return NextResponse.json(
+              {
+                message:
+                  "Вы не можете добавить товара больше чем , есть на складе",
+              },
+              { status: 230 }
+            );
+          }
+        } else if (action === "decrement") {
+          if (selectedSizeInCart.value > 0) {
+            selectedSizeInCart.value -= 1;
+          } else {
+            return NextResponse.json(
+              {
+                message:
+                  "Количество товара не может быть в отрицательном количестве",
+              },
+              { status: 220 }
+            );
+          }
+        }
+
+        await findProductInCart.save();
+        return NextResponse.json(findProductInCart);
+      } else {
+        return NextResponse.json(
+          { message: "Размер не найден" },
+          { status: 404 }
+        );
+      }
+    }
+  } catch (error) {
+    console.error("Error:", error); // Логирование ошибки
+    return NextResponse.json(
+      { message: "Something went wrong" },
+      { status: 500 }
+    );
+  }
+}

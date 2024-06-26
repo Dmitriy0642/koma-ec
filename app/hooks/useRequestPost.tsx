@@ -3,6 +3,12 @@ import axios from "axios";
 import { BASE_URL } from "../config";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
+interface PatchParams {
+  prodId: string;
+  size: string;
+  action: "increment" | "decrement";
+}
+
 export const useRequestPost = (collection: string, id: string, prod: any) => {
   const queryClient = useQueryClient();
   const fetchData = async () => {
@@ -34,6 +40,31 @@ export const useRequestDelete = (
     mutationFn: onDelete,
     onSuccess: () =>
       queryClient.invalidateQueries({ queryKey: [`${collection}/${id}`] }),
+  });
+
+  return { mutate, error, isPending };
+};
+
+export const useRequestPatch = (collection: string, userId: string) => {
+  const queryClient = useQueryClient();
+
+  const onChangeSize = async ({ prodId, size, action }: PatchParams) => {
+    const res = await axios.patch(`${BASE_URL}/${collection}/${userId}`, {
+      prodId,
+      size,
+      action,
+    });
+    return res.data;
+  };
+
+  const { mutate, error, isPending } = useMutation({
+    mutationFn: onChangeSize,
+    onSuccess: (data, varibles) => {
+      queryClient.invalidateQueries({ queryKey: [`${collection}/${userId}`] });
+      queryClient.invalidateQueries({
+        queryKey: [`${collection}/${userId}/${varibles.prodId}`],
+      });
+    },
   });
 
   return { mutate, error, isPending };

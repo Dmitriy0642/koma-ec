@@ -219,6 +219,8 @@
 
 .arrow_in_button_submit {
   margin-left: 10px;
+  width: auto;
+  height: auto;
 }
 
 /* FilterToggle */

@@ -14,6 +14,7 @@ export default function Header() {
           width={22}
           height={40}
           alt="coma_logo"
+          priority
         ></Image>
         <CartToggle />
       </div>

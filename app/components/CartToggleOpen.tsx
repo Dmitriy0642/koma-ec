@@ -182,7 +182,7 @@ const CartToggleOpen: React.FC = () => {
               <Image
                 src="/arrow_small.png"
                 className="arrow_in_button_submit"
-                width={18.33}
+                width={19}
                 height={11}
                 alt="arrow_small"
                 priority

@@ -7,7 +7,9 @@ const CookieWindow = () => {
   useEffect(() => {
     const contest = localStorage.getItem("cookieConsent");
     if (!contest) {
-      setIsVisible(false);
+      setTimeout(() => {
+        setIsVisible(false);
+      }, 2000);
     }
   }, []);
 
