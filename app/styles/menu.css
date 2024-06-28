@@ -258,38 +258,17 @@
 }
 
 @media (max-width: 500px) {
-  .second_block {
-    margin-left: 8px;
-  }
-
-  .payment_block {
-    width: 94%;
-  }
-
-  section.button_block {
-    width: 40px;
-    margin-top: 16px;
-  }
   .wrapper_buregercart {
     position: absolute;
-    padding: 0;
-    margin-right: 0;
-    margin-left: 0;
-    margin-top: -4px;
-    width: 100%;
-    border-radius: 0;
-    height: auto;
-  }
-  .second_block {
-    margin-left: 0;
-  }
-  .burgercart_block {
+    width: 92%;
+    max-width: 100%;
     padding: 20px;
-    align-items: center;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    border-radius: 0px;
   }
-  .product_anmout {
-    font-size: 11px;
-  }
+
   .koma_logo_white_cart {
     display: flex;
     width: 15px;

@@ -66,51 +66,52 @@ const Cart: React.FC = () => {
   };
 
   return (
-    <div className="main_warp">
+    <div className="main_wrapper_cart">
       {data.message || data.items.length === 0 ? (
         <h1>Your cart is empty</h1>
       ) : (
         <>
-          <p className="routing_in_cart">головна / кошик</p>
-          <h1 className="title_in_cart">Кошик</h1>
-          <div className="underwapper">
-            <div className="block_prod_cart">
-              <div className="line"></div>
+          <p className="cart_routing_title">Головна / кошик</p>
+          <h1 className="cart_title_main">Кошик</h1>
+          <div className="cart_content">
+            <div className="product_content_in_cart">
               {data.items.map((item: CartItem) => (
-                <div key={item._id} className="item_product">
-                  <Image
-                    src={item.image[0]}
-                    width={119}
-                    height={119}
-                    alt="product_item"
-                    className="prod_images"
-                    priority
-                  ></Image>
-                  <div className="product_description_body">
-                    <div className="first_line_description">
-                      <p className="item_name">{item.name}</p>
-                      <button
-                        className="delete_button_in_cart"
-                        id={item.prodId}
-                        onClick={onDelete}
-                      >
-                        Видалити
-                      </button>
-                    </div>
-                    <div className="sizes_block_in_cart">
-                      <ButtonsInCart
-                        sizes={item.sizes}
-                        price={item.price}
-                        prodId={item.prodId}
-                      />
+                <div key={item._id}>
+                  <div className="line_in_cart"></div>
+                  <div className="item_product_in_cart">
+                    <Image
+                      src={item.image[0]}
+                      alt="product_picture_in_cart"
+                      width={119}
+                      height={119}
+                      className="image_in_cart"
+                      priority
+                    ></Image>
+                    <div className="description_block_in_cart">
+                      <div className="line_first_in_cart">
+                        <p className="product_name_in_cart">{item.name}</p>
+                        <button
+                          className="delete_button_in_cart"
+                          id={item.prodId}
+                          onClick={onDelete}
+                        >
+                          Видалити
+                        </button>
+                      </div>
+                      <div className="size_block_in_cart">
+                        <ButtonsInCart
+                          sizes={item.sizes}
+                          price={item.price}
+                          prodId={item.prodId}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
               ))}
-              <div className="line"></div>
+              <div className="line_in_cart"></div>
             </div>
-
-            <div className="order_block">
+            <div className="description_to_order_cart">
               <div className="line_order_block"></div>
               <div className="block_final_amount">
                 <p className="title_receipt">Проміжний підсумок:</p>

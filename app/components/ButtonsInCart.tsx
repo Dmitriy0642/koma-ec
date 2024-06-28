@@ -28,7 +28,7 @@ const ButtonsInCart: React.FC<ButtonsInCartI> = ({ sizes, price, prodId }) => {
   }, []);
 
   return (
-    <>
+    <div className="container_sizes_block">
       {sizes.map((size: { size: string; value: number }) => (
         <div className="button_and_size_block" key={size.size}>
           <div className="buttons_block">
@@ -54,7 +54,7 @@ const ButtonsInCart: React.FC<ButtonsInCartI> = ({ sizes, price, prodId }) => {
           <p className="title_price_in_cart">{price} UAN</p>
         </div>
       }
-    </>
+    </div>
   );
 };
 

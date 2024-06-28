@@ -34,7 +34,7 @@ export const useRequestDelete = (
     const res = await axios.delete(`${BASE_URL}/${collection}/${id}`, {
       data: { prodId },
     });
-    return res;
+    return res.data;
   };
   const { mutate, error, isPending } = useMutation({
     mutationFn: onDelete,

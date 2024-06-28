@@ -8,7 +8,6 @@ import SortingSubCategory from "../components/SortingSubCategory";
 import { useRequest } from "../hooks/useRequest";
 import SortingNavBar from "../components/SortingNavBar";
 import SortingGender from "../components/SortingGender";
-import LatestArrivals from "../components/LatestArrivals";
 import FiltersToggle from "../components/FiltersToggle";
 import Loader from "../components/Loader";
 import { sortingOptions } from "../harddata/linkInSortingBar";
@@ -250,9 +249,6 @@ export default function Home() {
           </section>
           <section className="content_product">
             <CatalogProducts products={sortedProducts} />
-          </section>
-          <section className="latest_arrivals_block">
-            <LatestArrivals />
           </section>
         </section>
       </div>

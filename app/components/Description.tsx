@@ -51,13 +51,9 @@ const Description: React.FC<DescriptionI> = ({
             </li>
             <li className="list_description">
               <p className="description_list_part">модель:</p>Зріст моделі 1,85
-              м, розмір M
+              м
             </li>
           </ul>
-        </div>
-        <div className="description_block_third">
-          <h3 className="description_prod">опис продукту :</h3>
-          <p className="description_text">{description}</p>
         </div>
       </div>
       <div className="second_row">
@@ -77,9 +73,9 @@ const Description: React.FC<DescriptionI> = ({
             та горловиною екіпажу.
           </p>
         </div>
-        <div className="features_block">
-          <h3 className="features_title">особливості : </h3>
-          <p className="return_text">{features}</p>
+        <div className="description_block_third">
+          <h3 className="description_prod">опис продукту :</h3>
+          <p className="description_text_description">{description}</p>
         </div>
       </div>
     </>

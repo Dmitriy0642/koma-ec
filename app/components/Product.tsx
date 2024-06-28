@@ -7,6 +7,7 @@ import { useRequestPost } from "../hooks/useRequestPost";
 import Loader from "./Loader";
 import Description from "./Description";
 import Carousel from "./Carousel";
+import LatestArrivals from "./LatestArrivals";
 import Notification from "./Notification";
 import Image from "next/image";
 import { toast } from "sonner";
@@ -162,7 +163,7 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
               Додати до кошика
             </button>
           </div>
-          <div className="line"></div>
+          <div className="line_product"></div>
           <Description
             codeProduct={data.productCode}
             brand={data.firm}
@@ -172,7 +173,7 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
             features={data.features}
             description={data.description}
           />
-          <div className="line"></div>
+          <div className="line_product"></div>
           <div className="block_with_carousel">
             <Carousel
               container="carousel-container_xl"
@@ -181,6 +182,9 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
               carouselblock="carousel"
               prods={prods}
             />
+          </div>
+          <div className="block_with_latest_arrivals">
+            <LatestArrivals />
           </div>
         </div>
       </div>

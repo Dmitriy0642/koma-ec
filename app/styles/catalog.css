@@ -149,8 +149,8 @@
   .latest_arrivals_block {
     display: flex;
   }
-  .content_product {
-    display: none;
+  .content_blok {
+    justify-content: center;
   }
   .content_sorting {
     display: none;

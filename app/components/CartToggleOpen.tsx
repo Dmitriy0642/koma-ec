@@ -35,11 +35,6 @@ const CartToggleOpen: React.FC = () => {
       setIsUserId(userId);
     }
   }, [data]);
-  useEffect(() => {
-    if (isSelected.length > 0) {
-      mutate();
-    }
-  }, [isSelected]);
 
   if (isLoading) {
     return <Loader />;
@@ -58,6 +53,7 @@ const CartToggleOpen: React.FC = () => {
     const prodId = e.currentTarget.id;
     try {
       setIsSelected(prodId);
+      mutate();
     } catch (error) {
       console.log(error);
     }
@@ -75,6 +71,7 @@ const CartToggleOpen: React.FC = () => {
     }
     router.push(path);
   };
+  // console.log(data);
 
   return (
     <div className="wrapper_buregercart">
