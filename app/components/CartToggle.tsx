@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { getCookieValue } from "../util/cookiesMatcher";
 import { useRequestById } from "../hooks/useRequestById";
 import "../styles/header.css";
+import Loader from "./Loader";
 
 const CartToggle: React.FC = () => {
   const [isUserId, setIsUserId] = useState("");
@@ -23,10 +24,12 @@ const CartToggle: React.FC = () => {
       element.style.display = "block";
     }
   };
+  console.log(data);
+
   return (
     <div>
       <h2 className="cart_title" onClick={onClick}>
-        Cart ({data !== undefined ? data.items.length : 0})
+        Cart ({isLoading === true || data.message ? 0 : data.items.length})
       </h2>
     </div>
   );
