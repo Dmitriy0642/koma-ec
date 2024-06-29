@@ -24,12 +24,15 @@ const CartToggle: React.FC = () => {
       element.style.display = "block";
     }
   };
-  console.log(data);
 
   return (
     <div>
       <h2 className="cart_title" onClick={onClick}>
-        Cart ({isLoading === true || data.message ? 0 : data.items.length})
+        Cart (
+        {isLoading === true || data.message || data === undefined
+          ? 0
+          : data.items.length}
+        )
       </h2>
     </div>
   );
