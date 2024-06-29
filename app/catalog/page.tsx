@@ -112,7 +112,6 @@ export default function Home() {
     });
   };
 
-  ///онклик кнопок сортировки
   const onClick = (
     e: React.MouseEvent<HTMLButtonElement>,
     filterType: FilterType

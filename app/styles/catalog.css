@@ -150,7 +150,10 @@
     display: flex;
   }
   .content_blok {
-    justify-content: center;
+    display: block;
+  }
+  .content_product {
+    width: 100%;
   }
   .content_sorting {
     display: none;

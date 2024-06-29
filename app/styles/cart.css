@@ -38,7 +38,6 @@
 
 .description_to_order_cart {
   width: 40%;
-  /* min-height: 100vh; */
   margin-top: 25px;
   align-self: flex-start;
   cursor: default;
@@ -298,6 +297,12 @@
     width: 18%;
   }
   .size_label {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 659px) {
+  .product_name_in_cart {
     font-size: 12px;
   }
 }
