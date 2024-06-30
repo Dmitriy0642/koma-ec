@@ -71,11 +71,10 @@ const CartToggleOpen: React.FC = () => {
     }
     router.push(path);
   };
-  // console.log(data);
 
   return (
     <div className="wrapper_buregercart">
-      {data.message || data.items.length === 0 ? (
+      {data === undefined || !data.items || data.message ? (
         <section className="burgercart_block">
           <section className="burgercart_header">
             <section className="title_cart">your cart</section>

@@ -29,7 +29,11 @@ const CartToggle: React.FC = () => {
   return (
     <div>
       <h2 className="cart_title" onClick={onClick}>
-        Cart
+        Cart(
+        {data === undefined || !data.items || data.message
+          ? 0
+          : data.items.length}
+        )
       </h2>
     </div>
   );

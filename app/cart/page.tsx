@@ -52,6 +52,7 @@ const Cart: React.FC = () => {
   if (isLoading) {
     return <Loader />;
   }
+
   if (isError) {
     console.log(isError);
   }
@@ -67,7 +68,7 @@ const Cart: React.FC = () => {
 
   return (
     <div className="main_wrapper_cart">
-      {data.message || data.items.length === 0 ? (
+      {data === undefined || !data.items || data.message ? (
         <h1>Your cart is empty</h1>
       ) : (
         <>

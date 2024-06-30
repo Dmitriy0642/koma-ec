@@ -13,6 +13,7 @@ export async function GET(req: Request, { params }: Params) {
   try {
     await ConnectDataBase();
     const id = params.id;
+
     const findByUserId = await Cart.findOne({ userId: id });
     if (!findByUserId) {
       return NextResponse.json({
