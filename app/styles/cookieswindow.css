@@ -2,10 +2,10 @@
   width: 498px;
   height: 230px;
   background: #000;
-  position: absolute;
+  position: fixed;
   z-index: 100;
   padding: 24px;
-  top: 70%;
+  top: 65%;
   left: 3%;
   border-radius: 10px;
 }
@@ -66,4 +66,57 @@
   font-family: Helvetica Neue;
   cursor: pointer;
   background: white;
+}
+
+@media (max-width: 580px) {
+  .cookies_wrapper {
+    width: 85%;
+    height: auto;
+    left: 2%;
+  }
+
+  .cookies_title {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 455px) {
+  .cookies_title {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 376px) {
+  .cookies_wrapper {
+    width: 85%;
+    height: auto;
+    left: 1%;
+  }
+
+  .cookies_title {
+    font-size: 11px;
+  }
+
+  .cookie_text {
+    font-size: 10px;
+  }
+
+  .setup_cookies {
+    width: 120px;
+  }
+  .accept_cookies {
+    width: 120px;
+  }
+}
+
+@media (max-height: 667px) {
+  .cookies_wrapper {
+    top: 57%;
+  }
+}
+@media (max-height: 568px) {
+  .cookies_wrapper {
+    left: 0%;
+    top: 48%;
+  }
 }

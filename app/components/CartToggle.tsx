@@ -7,15 +7,18 @@ import Loader from "./Loader";
 
 const CartToggle: React.FC = () => {
   const [isUserId, setIsUserId] = useState("");
-  const [itemsInCart, setItemsInCart] = useState();
+  const [itemsInCart, setItemsInCart] = useState(0);
+  const { data, isError, isLoading } = useRequestById("cart", `${isUserId}`);
+
   useEffect(() => {
+    if (data && data.items) {
+      setItemsInCart(data.items.length);
+    }
     const userId = getCookieValue();
     if (userId) {
       setIsUserId(userId);
     }
-  }, []);
-
-  const { data, isError, isLoading } = useRequestById("cart", `${isUserId}`);
+  }, [data]);
 
   const onClick = () => {
     const element = document.querySelector(
@@ -25,6 +28,10 @@ const CartToggle: React.FC = () => {
       element.style.display = "block";
     }
   };
+
+  if (isLoading) {
+    return isLoading;
+  }
 
   return (
     <div>
