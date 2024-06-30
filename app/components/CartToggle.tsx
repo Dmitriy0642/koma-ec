@@ -8,13 +8,14 @@ import Loader from "./Loader";
 const CartToggle: React.FC = () => {
   const [isUserId, setIsUserId] = useState("");
   const [itemsInCart, setItemsInCart] = useState();
-  const { data, isError, isLoading } = useRequestById("cart", `${isUserId}`);
   useEffect(() => {
     const userId = getCookieValue();
     if (userId) {
       setIsUserId(userId);
     }
   }, []);
+
+  const { data, isError, isLoading } = useRequestById("cart", `${isUserId}`);
 
   const onClick = () => {
     const element = document.querySelector(
@@ -28,7 +29,7 @@ const CartToggle: React.FC = () => {
   return (
     <div>
       <h2 className="cart_title" onClick={onClick}>
-        Cart ({isLoading || !data || data.message ? 0 : data.items.length})
+        Cart
       </h2>
     </div>
   );
