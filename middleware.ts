@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { generateRandomId } from "./app/util/RandomId";
-export function middleware(req: NextRequest) {
+export async function middleware(req: NextRequest) {
   const response = NextResponse.next();
 
   const userId = req.cookies.get("userId");
@@ -14,3 +14,7 @@ export function middleware(req: NextRequest) {
   }
   return response;
 }
+
+export const config = {
+  matcher: "/:path*",
+};
