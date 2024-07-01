@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useRequestById } from "../hooks/useRequestById";
+import { useRequestByIdCart } from "../hooks/useRequestById";
 import { ProductProps } from "../types/Product";
 import { getCookieValue } from "../util/cookiesMatcher";
 import { useRequestPost } from "../hooks/useRequestPost";
@@ -21,7 +21,9 @@ interface ProductPropsI {
 
 const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
   const userIdCookie = getCookieValue();
-  const { data, isLoading, isError } = useRequestById("products", `${id}`);
+  console.log(userIdCookie);
+
+  const { data, isLoading, isError } = useRequestByIdCart("products", `${id}`);
 
   const [isSelected, setSelected] = useState("");
   const [isProduct, setIsProduct] = useState({
