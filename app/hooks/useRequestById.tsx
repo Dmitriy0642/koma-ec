@@ -21,8 +21,6 @@ export const useRequestById = (collection: string, id: string) => {
 };
 
 export const useRequestByIdCart = (collection: string, id: string) => {
-  const queryClient = useQueryClient();
-
   const fetchDataCart = async () => {
     if (id.length === 0) {
       return { items: [] };
@@ -36,10 +34,6 @@ export const useRequestByIdCart = (collection: string, id: string) => {
     queryFn: fetchDataCart,
     enabled: id.length !== 0 || id !== null || id !== undefined,
   });
-
-  useEffect(() => {
-    fetchDataCart();
-  }, [id]);
 
   return { data, isLoading, isError };
 };

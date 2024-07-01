@@ -5,19 +5,36 @@ import { getCookieValue } from "../util/cookiesMatcher";
 import { useRequestByIdCart } from "../hooks/useRequestById";
 import { useRequestDelete } from "../hooks/useRequestPost";
 import { useRouter } from "next/navigation";
+import { BASE_URL } from "../config";
 import Loader from "./Loader";
+import axios from "axios";
 import "../styles/menu.css";
+import { useQuery } from "@tanstack/react-query";
 
 const CartToggleOpen: React.FC = () => {
   const [isUserId, setIsUserId] = useState("");
   const [isSelected, setIsSelected] = useState("");
-  const { data, isError, isLoading } = useRequestByIdCart(
-    "cart",
-    `${isUserId}`
-  );
   const router = useRouter();
   const { mutate } = useRequestDelete("cart", isUserId, isSelected);
   const [isGeneralAmount, setIsGeneralAmount] = useState(0);
+
+  const fetchDataCart = async () => {
+    const { data } = await axios.get(`${BASE_URL}/cart/${isUserId}`);
+    return data;
+  };
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: [`cart/${isUserId}`],
+    queryFn: fetchDataCart,
+    enabled: !!isUserId,
+  });
+
+  useEffect(() => {
+    const userId = getCookieValue();
+    if (userId) {
+      setIsUserId(userId);
+    }
+  }, []);
 
   useEffect(() => {
     if (data && data.items) {
@@ -32,10 +49,6 @@ const CartToggleOpen: React.FC = () => {
       }, 0);
 
       setIsGeneralAmount(totalAmount);
-    }
-    const userId = getCookieValue();
-    if (userId) {
-      setIsUserId(userId);
     }
   }, [data]);
 

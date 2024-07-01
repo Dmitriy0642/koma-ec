@@ -21,8 +21,6 @@ interface ProductPropsI {
 
 const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
   const userIdCookie = getCookieValue();
-  console.log(userIdCookie);
-
   const { data, isLoading, isError } = useRequestByIdCart("products", `${id}`);
 
   const [isSelected, setSelected] = useState("");
