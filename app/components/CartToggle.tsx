@@ -15,8 +15,10 @@ const CartToggle: React.FC = () => {
     const userId = getCookieValue();
     if (userId) {
       setIsUserId(userId);
+      console.log(isUserId);
     }
-  }, [data]);
+    console.log(isUserId);
+  }, [data, isUserId]);
 
   const onClick = () => {
     const element = document.querySelector(

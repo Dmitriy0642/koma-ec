@@ -38,10 +38,8 @@ export const useRequestByIdCart = (collection: string, id: string) => {
   });
 
   useEffect(() => {
-    if (id.length !== 0) {
-      queryClient.invalidateQueries({ queryKey: [`${collection}/${id}`] });
-    }
-  }, [id, queryClient]);
+    fetchDataCart();
+  }, [id]);
 
   return { data, isLoading, isError };
 };

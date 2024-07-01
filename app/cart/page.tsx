@@ -43,8 +43,10 @@ const Cart: React.FC = () => {
     const userId = getCookieValue();
     if (userId) {
       setIsUserId(userId);
+      console.log(isUserId);
     }
-  }, [data]);
+    console.log(isUserId);
+  }, [data, isUserId]);
 
   useEffect(() => {
     if (isSelected.length > 0) {
