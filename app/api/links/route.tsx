@@ -35,7 +35,6 @@ export async function POST(req: Request) {
       );
     }
     const findByName = await Links.findOne({ name: name });
-    console.log(findByName);
 
     if (findByName) {
       return NextResponse.json(

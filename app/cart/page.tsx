@@ -3,7 +3,7 @@ import React, { useState, ChangeEvent, useEffect } from "react";
 import Image from "next/image";
 import TextArea from "../components/TextArea";
 import { getCookieValue } from "../util/cookiesMatcher";
-import { useRequestById } from "../hooks/useRequestById";
+import { useRequestByIdCart } from "../hooks/useRequestById";
 import { useRequestDelete } from "../hooks/useRequestPost";
 import ButtonsInCart from "../components/ButtonsInCart";
 import Loader from "../components/Loader";
@@ -14,7 +14,10 @@ const Cart: React.FC = () => {
   const [isUserId, setIsUserId] = useState("");
   const [isGeneralAmount, setIsGeneralAmount] = useState(0);
   const [isSelected, setIsSelected] = useState("");
-  const { data, isError, isLoading } = useRequestById("cart", `${isUserId}`);
+  const { data, isError, isLoading } = useRequestByIdCart(
+    "cart",
+    `${isUserId}`
+  );
   const { mutate } = useRequestDelete("cart", isUserId, isSelected);
 
   const handleChange = (

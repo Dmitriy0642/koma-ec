@@ -1,21 +1,19 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { getCookieValue } from "../util/cookiesMatcher";
-import { useRequestById } from "../hooks/useRequestById";
+import { useRequestByIdCart } from "../hooks/useRequestById";
 import "../styles/header.css";
-import Loader from "./Loader";
 
 const CartToggle: React.FC = () => {
   const [isUserId, setIsUserId] = useState("");
-  const [itemsInCart, setItemsInCart] = useState(0);
-  const { data, isError, isLoading } = useRequestById("cart", `${isUserId}`);
+  const { data, isError, isLoading } = useRequestByIdCart(
+    "cart",
+    `${isUserId}`
+  );
 
   useEffect(() => {
-    if (data && data.items) {
-      setItemsInCart(data.items.length);
-    }
     const userId = getCookieValue();
-    if (userId) {
+    if (userId !== null) {
       setIsUserId(userId);
     }
   }, [data]);
@@ -30,7 +28,6 @@ const CartToggle: React.FC = () => {
   };
 
   if (isLoading) {
-    return isLoading;
   }
 
   return (

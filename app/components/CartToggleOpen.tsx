@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { getCookieValue } from "../util/cookiesMatcher";
-import { useRequestById } from "../hooks/useRequestById";
+import { useRequestByIdCart } from "../hooks/useRequestById";
 import { useRequestDelete } from "../hooks/useRequestPost";
 import { useRouter } from "next/navigation";
 import Loader from "./Loader";
@@ -11,7 +11,10 @@ import "../styles/menu.css";
 const CartToggleOpen: React.FC = () => {
   const [isUserId, setIsUserId] = useState("");
   const [isSelected, setIsSelected] = useState("");
-  const { data, isError, isLoading } = useRequestById("cart", `${isUserId}`);
+  const { data, isError, isLoading } = useRequestByIdCart(
+    "cart",
+    `${isUserId}`
+  );
   const router = useRouter();
   const { mutate } = useRequestDelete("cart", isUserId, isSelected);
   const [isGeneralAmount, setIsGeneralAmount] = useState(0);
