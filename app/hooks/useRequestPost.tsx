@@ -9,29 +9,25 @@ interface PatchParams {
   action: "increment" | "decrement";
 }
 
-export const useRequestPost = (collection: string, id: string, prod: any) => {
+export const useRequestPost = (collection: string, prod: any) => {
   const queryClient = useQueryClient();
   const fetchData = async () => {
-    const res = await axios.post(`${BASE_URL}/${collection}/${id}`, prod);
+    const res = await axios.post(`${BASE_URL}/${collection}`, prod);
     return res.status;
   };
   const { mutate, error, isPending } = useMutation({
     mutationFn: fetchData,
     onSuccess: () =>
-      queryClient.invalidateQueries({ queryKey: [`${collection}/${id}`] }),
+      queryClient.invalidateQueries({ queryKey: [`${collection}`] }),
   });
 
   return { mutate, error, isPending };
 };
 
-export const useRequestDelete = (
-  collection: string,
-  id: string,
-  prodId: string
-) => {
+export const useRequestDelete = (collection: string, prodId: string) => {
   const queryClient = useQueryClient();
   const onDelete = async () => {
-    const res = await axios.delete(`${BASE_URL}/${collection}/${id}`, {
+    const res = await axios.delete(`${BASE_URL}/${collection}`, {
       data: { prodId },
     });
     return res.data;
@@ -39,17 +35,17 @@ export const useRequestDelete = (
   const { mutate, error, isPending } = useMutation({
     mutationFn: onDelete,
     onSuccess: () =>
-      queryClient.invalidateQueries({ queryKey: [`${collection}/${id}`] }),
+      queryClient.invalidateQueries({ queryKey: [`${collection}`] }),
   });
 
   return { mutate, error, isPending };
 };
 
-export const useRequestPatch = (collection: string, userId: string) => {
+export const useRequestPatch = (collection: string, uId: string) => {
   const queryClient = useQueryClient();
 
   const onChangeSize = async ({ prodId, size, action }: PatchParams) => {
-    const res = await axios.patch(`${BASE_URL}/${collection}/${userId}`, {
+    const res = await axios.patch(`${BASE_URL}/${collection}/${uId}`, {
       prodId,
       size,
       action,
@@ -60,9 +56,9 @@ export const useRequestPatch = (collection: string, userId: string) => {
   const { mutate, error, isPending } = useMutation({
     mutationFn: onChangeSize,
     onSuccess: (data, varibles) => {
-      queryClient.invalidateQueries({ queryKey: [`${collection}/${userId}`] });
+      queryClient.invalidateQueries({ queryKey: [`${collection}`] });
       queryClient.invalidateQueries({
-        queryKey: [`${collection}/${userId}/${varibles.prodId}`],
+        queryKey: [`${collection}/${varibles.prodId}`],
       });
     },
   });

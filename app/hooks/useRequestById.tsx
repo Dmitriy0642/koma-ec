@@ -1,8 +1,7 @@
 "use client";
 import axios from "axios";
 import { BASE_URL } from "../config";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 export const useRequestById = (collection: string, id: string) => {
   const fetchData = async () => {

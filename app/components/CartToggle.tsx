@@ -1,32 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { getCookieValue } from "../util/cookiesMatcher";
-import { useQuery } from "@tanstack/react-query";
-import { BASE_URL } from "../config";
-import axios from "axios";
+import React from "react";
+import { useRequest } from "../hooks/useRequest";
 import "../styles/header.css";
 
 const CartToggle: React.FC = () => {
-  const [isUserId, setIsUserId] = useState("");
-  const fetchDataCart = async () => {
-    const { data } = await axios.get(`${BASE_URL}/cart/${isUserId}`);
-    return data;
-  };
-
-  const { data, isLoading, isError } = useQuery({
-    queryKey: [`cart/${isUserId}`],
-    queryFn: fetchDataCart,
-    enabled: !!isUserId,
-  });
-
-  useEffect(() => {
-    const userId = getCookieValue();
-    if (userId) {
-      console.log(userId);
-
-      setIsUserId(userId);
-    }
-  }, []);
+  const { data, isLoading, isError } = useRequest("cart");
 
   const onClick = () => {
     const element = document.querySelector(
@@ -38,6 +16,10 @@ const CartToggle: React.FC = () => {
   };
 
   if (isLoading) {
+  }
+
+  if (isError) {
+    console.log(isError);
   }
 
   return (

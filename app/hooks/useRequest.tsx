@@ -14,3 +14,5 @@ export const useRequest = (collection: string) => {
   });
   return { data, isLoading, isError };
 };
+
+export const useRequestCart = (collection: string) => {};

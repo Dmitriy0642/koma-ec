@@ -18,7 +18,7 @@ const Cart: React.FC = () => {
     "cart",
     `${isUserId}`
   );
-  const { mutate } = useRequestDelete("cart", isUserId, isSelected);
+  const { mutate } = useRequestDelete("cart", isSelected);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

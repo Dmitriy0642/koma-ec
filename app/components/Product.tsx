@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { useRequestByIdCart } from "../hooks/useRequestById";
 import { ProductProps } from "../types/Product";
-import { getCookieValue } from "../util/cookiesMatcher";
 import { useRequestPost } from "../hooks/useRequestPost";
 import Loader from "./Loader";
 import Description from "./Description";
@@ -20,24 +19,16 @@ interface ProductPropsI {
 }
 
 const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
-  const userIdCookie = getCookieValue();
   const { data, isLoading, isError } = useRequestByIdCart("products", `${id}`);
-
   const [isSelected, setSelected] = useState("");
   const [isProduct, setIsProduct] = useState({
-    userId: `${userIdCookie}`,
     selectedSizeFromShelter: [],
     items: {},
   });
   const [isNotification, setIsNotification] = useState(false);
   const [notificationText, isNotificationText] = useState("");
   const [isKeepSize, setIsKeppSize] = useState([]);
-
-  const { mutate, error } = useRequestPost(
-    "cart",
-    `${userIdCookie}`,
-    isProduct
-  );
+  const { mutate, error } = useRequestPost("cart", isProduct);
 
   useEffect(() => {
     if (data) {
@@ -72,7 +63,6 @@ const Product: React.FC<ProductPropsI> = ({ id, prods }) => {
     }
 
     setIsProduct({
-      userId: `${userIdCookie}`,
       selectedSizeFromShelter: selectedSizeFromShelter,
       items: [
         {
